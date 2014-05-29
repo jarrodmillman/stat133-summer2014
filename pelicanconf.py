@@ -5,7 +5,7 @@ AUTHOR = u'K. Jarrod Millman'
 SITENAME = u"UC Berkeley's Statistics 133"
 SITEURL = ''
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'US/Pacific'
 
 DEFAULT_LANG = u'en'
 
@@ -28,3 +28,5 @@ DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+THEME = '_theme/'

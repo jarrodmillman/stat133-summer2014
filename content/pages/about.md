@@ -7,20 +7,35 @@ Slug: about
 * GSI
     * Karl Kumbier 
     * OH: TBD
-* Class meets MTWTF 9-10A in [155 DONNER LAB](https://maps.google.com/maps?q=155-donner+lab+berkeley+ca&hl=en&ll=37.8757,-122.25631&spn=0.01045,0.021136&sll=37.870775,-122.30098&sspn=0.083609,0.169086&t=h&hnear=Donner+Lab,+Berkeley,+California+94709&z=16)
-* Lab meets TuTh 10-11A or 12-1P in [340 EVANS](https://maps.google.com/maps?q=340+evans+statistics+berkeley+ca&hl=en&sll=37.8757,-122.25631&sspn=0.01045,0.021136&t=h&hq=340+evans+statistics+berkeley+ca&z=16)
+* Session Dates: 06/09-08/15/14
+    * Class meets MTWTF 9-10A in [155 DONNER LAB](https://maps.google.com/maps?q=155-donner+lab+berkeley+ca&hl=en&ll=37.8757,-122.25631&spn=0.01045,0.021136&sll=37.870775,-122.30098&sspn=0.083609,0.169086&t=h&hnear=Donner+Lab,+Berkeley,+California+94709&z=16)
+    * Lab meets TuTh 10-11A or 12-1P in [340 EVANS](https://maps.google.com/maps?q=340+evans+statistics+berkeley+ca&hl=en&sll=37.8757,-122.25631&sspn=0.01045,0.021136&t=h&hq=340+evans+statistics+berkeley+ca&z=16)
 * CNN: [79690](http://osoc.berkeley.edu/OSOC/osoc?p_ccn=79690&p_term=SU)
 
-## Course Catalog Description
+## Course Description
 
-An introduction to computationally intensive applied statistics. Topics will
+An introduction to computationally intensive applied statistics. Topics may
 include organization and use of databases, visualization and graphics,
 statistical learning and data mining, model validation procedures, and the
 presentation of results.
 
-* Prerequisites: Familiarity with basic concepts in probability and statistics is important.
-  Being comfortable with matrices, vectors, basic set theory, functions, and graphs will also help.
-  There is no prerequisite for programming: we will learn how to program with data from scratch!
+**Prerequisites**: Familiarity with basic concepts in probability and statistics is important.
+Being comfortable with matrices, vectors, basic set theory, functions, and graphs will also help.
+There is no prerequisite for programming: we will learn how to program with data from scratch!
+
+### Topics
+
+The goal of this course is to introduce you to a variety of programs and
+technologies that are useful for organizing, manipulating and visualizing data. 
+This includes:
+
+* Basic understanding of computers and networks
+* Working at the (Bash) command line
+* Regular expressions
+* Scientific computing with Python including NumPy, SciPy, and matplotlib
+* File formats including CSV, JSON, HDF5, and XML
+* Clustering, classification, and linear regression
+* Basic knowledge of R
 
 ## Grading
 

@@ -43,5 +43,8 @@ LINKS =  (('Command line', 'http://jarrodmillman.github.io/cli-guide'),
           ('matplotlib', 'http://matplotlib.org/'),
           ('Software Carpentry', 'http://software-carpentry.org'),)
 
+PLUGIN_PATH = '_plugins/'
+PLUGINS = ['latex']
+
 
 CC_LICENSE = "CC-BY-NC-SA"

@@ -31,9 +31,11 @@ This includes:
 
 * Basic understanding of computers and networks
 * Working at the (Bash) command line
+* Version control using Git and GitHub
 * Regular expressions
 * Scientific computing with Python including NumPy, SciPy, and matplotlib
 * File formats including CSV, JSON, HDF5, and XML
+* Document generation using $\LaTeX$, markdown, reStructuredText, Sphinx, and Pelican
 * Clustering, classification, and linear regression
 * Basic knowledge of R
 

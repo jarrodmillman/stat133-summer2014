@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Software - UC Berkeley's Statistics 133 (summer 2014)</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="UC Berkeley's Statistics 133 (summer 2014)" />
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Software"/>
+            <meta property="og:url" content="/pages/software.html"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="UC Berkeley's Statistics 133 (summer 2014) ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+UC Berkeley's Statistics 133 (summer 2014)            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about.html">
+                             About
+                          </a></li>
+                         <li class="active"><a href="/pages/software.html">
+                             Software
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content" class="body">
+        <h1 class="entry-title">Software</h1>
+        
+        <div class="entry-content">
+            <h1>Text editor</h1>
+<p>You will need an editor for text to edit code and other things.</p>
+<p>Your text editor will be your constant companion and you should chose
+carefully.</p>
+<p>Your teachers use the <code>vim</code> text editor; this is very powerful but has a
+steep learning curve.  The editors we recommend below are easier to use
+without practice, but less powerful.</p>
+<h2>Windows</h2>
+<p>We suggest <a href="http://notepad-plus-plus.org">Notepad++</a>.</p>
+<p>Go to the "Download" page; download and run the <code>.exe</code> installer.</p>
+<p><strong>New</strong>
+In BASH</p>
+<div class="highlight"><pre><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/c/Program<span class="se">\ </span>Files/Notepad++:<span class="nv">$PATH</span>
+<span class="nb">alias </span><span class="nv">edit</span><span class="o">=</span><span class="s1">&#39;notepad++&#39;</span>
+</pre></div>
+
+
+<h2>OSX</h2>
+<p>We suggest <a href="http://www.barebones.com/products/textwrangler">TextWrangler</a>.
+Download the <code>.dmg</code> installer.  Run the file to get the disk icon on the
+desktop like this:</p>
+<p><img alt="TextWrangler DMG" src="/images/tw_dmg.png" /></p>
+<p>Double click the disk icon to get something like this:</p>
+<p><img alt="TextWrangler install" src="/images/tw_install.png" /></p>
+<p>Drag the TextWrangler icon to the Applications folder icon to install.</p>
+<p>Open TextWrangler by going to your Applications folder and double-clicking the
+TextWrangler icon.</p>
+<p>Go to the TextWrangler menu and make sure you have installed the command line
+tools:</p>
+<p><img alt="TextWrangler command line" src="/images/tw_command_line.png" /></p>
+<h1>Git setup</h1>
+<p><a href="http://git-scm.com">git</a> is the standard version control software that allows
+us to keep a record of changes and to share changes with other people.</p>
+<h2>On Windows</h2>
+<p><strong>Note:</strong> You will need to install version 1.8.4 (there's an error in 1.8.5 for Windows).
+You can find the 1.8.4 Windows executable <a href="http://code.google.com/p/msysgit/downloads/detail?name=Git-1.8.4-preview20130916.exe">here</a>.</p>
+<p>Follow the instructions <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git#Installing-on-Windows">here</a>.</p>
+<p>If you installed Notepad++ you will need to tell git to use Notepad++ as your
+editor when git needs text descriptions.</p>
+<p>First open windows explorer to check where Notepad++ got installed.  The
+program may be in <code>C:/Program Files/Notepad++/notepad++.exe</code> or in <code>C:/Program Files (x86)/Notepad++/notepad++.exe</code>. Check which.</p>
+<p>Then double click the git bash icon:</p>
+<p><img alt="git bash icon" src="/images/git_bash_icon.png" /></p>
+<p>From this web page, select and copy the command that matches where your
+Notepad++ was installed:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">core</span><span class="p">.</span><span class="n">editor</span> <span class="s">&quot;&#39;C:/Program Files/Notepad++/notepad++.exe&#39; -multiInst -notabbar -nosession -noPlugin&quot;</span>
+</pre></div>
+
+
+<p>or</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">core</span><span class="p">.</span><span class="n">editor</span> <span class="s">&quot;&#39;C:/Program Files (x86)/Notepad++/notepad++.exe&#39; -multiInst -notabbar -nosession -noPlugin&quot;</span>
+</pre></div>
+
+
+<p>Select the top left corner of the git bash window to get the window menu, then
+find the 'Edit' menu 'Paste' option to paste the command into git bash:</p>
+<p><img alt="git bash paste" src="/images/git_bash_paste.png" /></p>
+<p>When you've pasted, press return:</p>
+<p><img alt="git bash configged" src="/images/git_bash_configged.png" /></p>
+<p>(These instructions are from <a href="http://stackoverflow.com/questions/1634161/how-do-i-use-notepad-or-other-with-msysgit/2486342#2486342">stackoverflow</a>)</p>
+<p>You can check that your editor is properly configured by typing:</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="o">-</span><span class="n">e</span>
+</pre></div>
+
+
+<p>in the git bash window.  It should fire up Notepad++ with a text file with
+some settings for git.  Don't change anything, close the file.</p>
+<h2>On OSX</h2>
+<p>Download and run the installer for <a href="http://code.google.com/p/git-osx-installer">git on
+OSX</a></p>
+<p>If you installed TextWrangler you need to tell git to use it as your text
+editor.</p>
+<ul>
+<li>make sure you installed the TextWrangler command line tools (see above).</li>
+<li>Open <code>Terminal</code> (Command key and space, type 'Terminal' to find the Terminal
+  app)</li>
+<li>
+<p>At the Terminal command line, type:</p>
+<p><code>git config --global core.editor "edit -w"</code></p>
+</li>
+</ul>
+<p>(These instructions are from <a href="http://stackoverflow.com/questions/13257519/how-to-change-the-default-editor-for-git">stackoverflow</a>)</p>
+<p>You can check your editor is properly configure by typing:[</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="o">-</span><span class="n">e</span>
+</pre></div>
+
+
+<p>in the Terminal window.  It should fire up TextWranger with a text file with
+some settings for git.  Don't change anything, close the file.</p>
+<h1>Scientific Python distribution</h1>
+<p>You will need to install several Python packages for scientific computing.
+If you are using Windows or OSX, you may want to install
+<a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>.</p>
+        </div>
+    </section>
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://jarrodmillman.github.io/cli-guide" target="_blank">
+                Command line
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://docs.python.org/2/" target="_blank">
+                Python
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://docs.scipy.org/" target="_blank">
+                NumPy & SciPy
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://matplotlib.org/" target="_blank">
+                matplotlib
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://software-carpentry.org" target="_blank">
+                Software Carpentry
+            </a>
+        </li>
+      </ul>
+    </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 K. Jarrod Millman
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+</body>
+</html>

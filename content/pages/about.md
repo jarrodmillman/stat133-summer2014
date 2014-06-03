@@ -19,9 +19,10 @@ include organization and use of databases, visualization and graphics,
 statistical learning and data mining, model validation procedures, and the
 presentation of results.
 
-**Prerequisites**: Familiarity with basic concepts in probability and statistics is important.
-Being comfortable with matrices, vectors, basic set theory, functions, and graphs will also help.
-There is no prerequisite for programming: we will learn how to program with data from scratch!
+**Prerequisites**: Familiarity with basic concepts in probability and
+statistics is important.  Being comfortable with matrices, vectors, basic set
+theory, functions, and graphs will also help.  There is no prerequisite for
+programming: we will learn how to program with data from scratch!
 
 ### Topics
 
@@ -32,18 +33,53 @@ This includes:
 * Basic understanding of computers and networks
 * Working at the (Bash) command line
 * Version control using Git and GitHub
-* Regular expressions
+* Understanding regular expressions
+* Basics of programming (data structures, control flow, debugging, etc.)
 * Scientific computing with Python including NumPy, SciPy, and matplotlib
+* Simulation and random number generation
+* Exploratory data analysis and dimension reduction (PCA)
 * File formats including CSV, JSON, HDF5, and XML
-* Document generation using $\LaTeX$, markdown, reStructuredText, Sphinx, and Pelican
+* Process automation with Make
+* Document generation using $\LaTeX$, Markdown, reStructuredText, Sphinx, and Pelican
 * Clustering, classification, and linear regression
 * Basic knowledge of R
 
 ## Grading
 
-* Grading Policies: 25% midterm, 25% final exam, 20% labs, and 30% project.
-* Course Policies: There will be no makeup midterm nor final exam. No late homework will be accepted.
-  Grades of Incomplete will be granted only for dire medical or personal emergencies that cause you
-  to miss the final, and only if your work up to that point has been satisfactory.
-* Academic Honesty: Cheating cases will result in an immediate failing grade for the class and will
-  be reported to the University Center for Student Conduct. Please read the [Honor Code](http://asuc.org/honorcode/index.php) carefully.
+Your final grade will be a weighted average of grades in the following areas:
+
+* 5% participation
+* 40% labs and/or homework
+* 15% midterm
+* 20% group project - due at the end of semester
+* 20% final exam
+
+## Course Policies
+
+**Attendance and behavior in class:** You are expected to attend all lectures
+and labs.  Any known or potential extracurricular conflicts should be discussed
+in person with the instructor during the first two weeks of the semester, or as
+soon as they arise. *Cellphones* are to be turned off during class time.
+*Laptop* use during class is recommend, but it is expected that you will be
+using your laptop to type along with the lecture.
+
+**Submission of assignments:** Assignments will be accepted by electronic
+submission to GitHub only.  There will be no makeup midterm nor final exam. No
+late labs or homework will be accepted.  Grades of Incomplete will be granted
+only for dire medical or personal emergencies that cause you to miss the final,
+and only if your work up to that point has been satisfactory.
+
+**Academic integrity:** Any test, paper or report submitted by you and that
+bears your name is presumed to be your own original work that has not
+previously been submitted for credit in another course. While you are
+encouraged to work together on homework assignments, the work and writeup must
+be your own. For example, suggesting a function to another student is
+acceptable, whereas simply giving him or her your own code is not.  If you are
+not clear about the expectations for completing an assignment or taking an
+exam, be sure to seek clarification from the instructor or GSI beforehand. Any
+evidence of cheating and plagiarism will be subject to disciplinary action.
+Please read the [Honor Code](http://asuc.org/honorcode/index.php) carefully.
+
+**Students with disabilities:** If you need accommodations for any physical,
+psychological, or learning disability, please speak to me after class or during
+office hours so that we can make the necessary arrangements.

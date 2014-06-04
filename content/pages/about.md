@@ -22,16 +22,18 @@ presentation of results.
 **Prerequisites**: Familiarity with basic concepts in probability and
 statistics is important.  Being comfortable with matrices, vectors, basic set
 theory, functions, and graphs will also help.  There is no prerequisite for
-programming: we will learn how to program with data from scratch!
+programming.
 
 ### Topics
 
 The goal of this course is to introduce you to a variety of programs and
-technologies that are useful for organizing, manipulating and visualizing data. 
-This includes:
+technologies that are useful for organizing, manipulating, and visualizing
+data.  This includes:
 
 * Basic understanding of computers and networks
 * Working at the (Bash) command line
+* Implementing reproducible research
+* Open source development practice
 * Version control using Git and GitHub
 * Understanding regular expressions
 * Basics of programming (data structures, control flow, debugging, etc.)
@@ -69,16 +71,16 @@ late labs or homework will be accepted.  Grades of Incomplete will be granted
 only for dire medical or personal emergencies that cause you to miss the final,
 and only if your work up to that point has been satisfactory.
 
-**Academic integrity:** Any test, paper or report submitted by you and that
-bears your name is presumed to be your own original work that has not
-previously been submitted for credit in another course. While you are
-encouraged to work together on homework assignments, the work and writeup must
-be your own. For example, suggesting a function to another student is
-acceptable, whereas simply giving him or her your own code is not.  If you are
-not clear about the expectations for completing an assignment or taking an
-exam, be sure to seek clarification from the instructor or GSI beforehand. Any
-evidence of cheating and plagiarism will be subject to disciplinary action.
-Please read the [Honor Code](http://asuc.org/honorcode/index.php) carefully.
+**Academic integrity:** Any test, paper, or report submitted by you is presumed
+to be your own original work that has not previously been submitted for credit
+in another course. While you are encouraged to work together on homework
+assignments, the work and writeup must be your own. For example, suggesting a
+function to another student is acceptable, whereas simply giving him or her
+your own code is not.  If you are not clear about the expectations for
+completing an assignment or taking an exam, be sure to seek clarification from
+the instructor or GSI beforehand. Any evidence of cheating and plagiarism will
+be subject to disciplinary action.  Please read the [Honor
+Code](http://asuc.org/honorcode/index.php) carefully.
 
 **Students with disabilities:** If you need accommodations for any physical,
 psychological, or learning disability, please speak to me after class or during

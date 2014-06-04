@@ -24,20 +24,11 @@ THEME = '_theme/'
 ## Title menu options (this isn't necessary, but I wanted to have more control)
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = True
-#MENUITEMS = [('Course Information', 'http://berkeley-stat133.github.io/pages/info.html'),
-#             ('Syllabus',
-#             'http://berkeley-stat133.github.io/pages/syllabus.html'),
-#             ('Lectures',
-#             'http://berkeley-stat133.github.io/pages/lectures.html'),
-#             ('Labs', 'http://berkeley-stat133.github.io/pages/labs.html'),
-#             ('Cloud', 'http://berkeley-stat133.github.io/pages/cloud.html'),
-#             ('Assignments',
-#             'http://berkeley-stat133.github.io/pages/assignments.html'),]
 
 DISPLAY_TAGS_ON_SIDEBAR = False
 
 # Blogroll
-LINKS =  (('Command line', 'http://jarrodmillman.github.io/cli-guide'),
+LINKS =  (('Command line', 'http://www.jarrodmillman.com/commandline'),
           ('Python', 'http://docs.python.org/2/'),
           ('NumPy & SciPy', 'http://docs.scipy.org/'),
           ('matplotlib', 'http://matplotlib.org/'),

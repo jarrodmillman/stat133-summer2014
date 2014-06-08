@@ -101,7 +101,7 @@ some settings for git.  Don't change anything, close the file.
 ## On OSX
 
 Download and run the installer for [git on
-OSX](http://code.google.com/p/git-osx-installer)
+OSX](http://code.google.com/p/git-osx-installer).
 
 If you installed TextWrangler you need to tell git to use it as your text
 editor.
@@ -122,8 +122,6 @@ You can check your editor is properly configure by typing:[
 in the Terminal window.  It should fire up TextWranger with a text file with
 some settings for git.  Don't change anything, close the file.
 
-# Scientific Python distribution
+# R statistical computing platform
 
-You will need to install several Python packages for scientific computing.
-If you are using Windows or OSX, you may want to install
-[Anaconda](https://store.continuum.io/cshop/anaconda/).
+Download and run the installer for [R](http://cran.cnr.berkeley.edu/).

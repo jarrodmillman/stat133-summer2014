@@ -29,9 +29,9 @@ DISPLAY_TAGS_ON_SIDEBAR = False
 
 # Blogroll
 LINKS =  (('Command line', 'http://www.jarrodmillman.com/commandline'),
-          ('Python', 'http://docs.python.org/2/'),
-          ('NumPy & SciPy', 'http://docs.scipy.org/'),
-          ('matplotlib', 'http://matplotlib.org/'),
+          ('R home', 'http://www.r-project.org/'),
+          ('R docs', 'http://cran.r-project.org/manuals.html'),
+          ('R seek', 'http://rseek.org/'),
           ('Software Carpentry', 'http://software-carpentry.org'),)
 
 PLUGIN_PATH = '_plugins/'

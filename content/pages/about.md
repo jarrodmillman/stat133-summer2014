@@ -27,8 +27,8 @@ programming.
 ### Topics
 
 The goal of this course is to introduce you to a variety of programs and
-technologies that are useful for organizing, manipulating, and visualizing
-data.  This includes:
+technologies that are useful for organizing, manipulating, and visualizing data
+with a focus on the R statistical computing environment.  Topics may include:
 
 * Basic understanding of computers and networks
 * Working at the (Bash) command line
@@ -37,14 +37,13 @@ data.  This includes:
 * Version control using Git and GitHub
 * Understanding regular expressions
 * Basics of programming (data structures, control flow, debugging, etc.)
-* Scientific computing with Python including NumPy, SciPy, and matplotlib
 * Simulation and random number generation
 * Exploratory data analysis and dimension reduction (PCA)
 * File formats including CSV, JSON, HDF5, and XML
 * Process automation with Make
 * Document generation using $\LaTeX$, Markdown, reStructuredText, Sphinx, and Pelican
 * Clustering, classification, and linear regression
-* Basic knowledge of R
+* Brief introduction to scientific computing with Python
 
 ## Grading
 

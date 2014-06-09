@@ -59,6 +59,8 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	cd ../slides && $(MAKE) pdf
+	cp -a ../slides/lecture $(OUTPUTDIR)
 
 github: publish
 	ghp-import -n $(OUTPUTDIR)

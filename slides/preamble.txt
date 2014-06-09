@@ -1,0 +1,7 @@
+\author[KJ Millman]{K. Jarrod Millman}
+
+\institute[UCB]{
+  Jarrod Millman\\[8ex]
+  Statistics 133: Concepts in computing with data\\[1ex]
+  Monday, June 9, 2014\\
+}

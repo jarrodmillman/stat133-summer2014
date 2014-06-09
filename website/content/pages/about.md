@@ -1,5 +1,12 @@
-Title: About
+Title: Concepts in Computing with Data.
 Slug: about
+
+### UC Berkeley, Statistics 133, Summer 2014
+
+An introduction to computationally intensive applied statistics. Topics may
+include organization and use of databases, visualization and graphics,
+statistical learning and data mining, model validation procedures, and the
+presentation of results.
 
 * Instructor
     * [Jarrod Millman](http://jarrodmillman.com)
@@ -12,12 +19,6 @@ Slug: about
     * Lab meets TuTh 10-11A or 12-1P in [340 EVANS](https://maps.google.com/maps?q=340+evans+statistics+berkeley+ca&hl=en&sll=37.8757,-122.25631&sspn=0.01045,0.021136&t=h&hq=340+evans+statistics+berkeley+ca&z=16)
 * CNN: [79690](http://osoc.berkeley.edu/OSOC/osoc?p_ccn=79690&p_term=SU)
 
-## Course Description
-
-An introduction to computationally intensive applied statistics. Topics may
-include organization and use of databases, visualization and graphics,
-statistical learning and data mining, model validation procedures, and the
-presentation of results.
 
 **Prerequisites**: Familiarity with basic concepts in probability and
 statistics is important.  Being comfortable with matrices, vectors, basic set

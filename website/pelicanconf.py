@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'K. Jarrod Millman'
-SITENAME = u"UC Berkeley's Statistics 133 (summer 2014)"
+SITENAME = u"Stat 133 (summer 2014)"
 SITEURL = ''
 
 TIMEZONE = 'US/Pacific'
@@ -23,7 +23,13 @@ THEME = '_theme/'
 
 ## Title menu options (this isn't necessary, but I wanted to have more control)
 DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_PAGES_ON_MENU = True
+DISPLAY_PAGES_ON_MENU = False
+MENUITEMS = [('About',
+              'http://www.jarrodmillman.com/stat133-summer2014/pages/about.html'),
+             ('Lectures',
+              'http://www.jarrodmillman.com/stat133-summer2014/pages/lectures.html'),
+             ('Software',
+              'http://www.jarrodmillman.com/stat133-summer2014/pages/software.html')]
 
 DISPLAY_TAGS_ON_SIDEBAR = False
 

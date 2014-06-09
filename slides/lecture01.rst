@@ -1,5 +1,6 @@
 .. |bullet| unicode:: U+02022
 .. |emdash| unicode:: U+02014
+.. |endash| unicode:: U+02013
 
 ===============
 Course Overview
@@ -27,12 +28,37 @@ Discussion site:
 
 http://piazza.com/berkeley/summer2014/statistics133
 
+Academic integrity
+==================
+
+Code of conduct:
+http://sa.berkeley.edu/code-of-conduct
+
+* Free to discuss course matters with instructor, GSI,
+  and fellow students
+* Keep the code you write to yourself
+* Make significant contributions to your group's work
+* Questions: If you are uncertain as to whether something
+  may be a violation of the code, ask the instructor
+
+Academic integrity
+==================
+
+Writing code is like writing a paper |emdash| your code should
+be your original work.
+
+A violation will result in at least one of the following:
+
+* 0 for the assignment
+* F for the course
+* Report to the Office of Student Conduct
+
 Computing
 =========
 
 "Computing's core challenge is how not to make a mess of it."
 
--- `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_,
+|endash| `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_,
 `EWD1243a <https://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1243a.html>`_
 
 Radical novelty 1
@@ -46,7 +72,7 @@ town is made up from neighbourhoods, which are structured by streets, which
 contain buildings, which are made from walls and floors, that are built from
 bricks, etc. eventually down to the elementary particles."
 
--- `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_, 
+|endash| `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_, 
 `EWD 1036 <http://www.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html>`_
 
 Radical novelty 2
@@ -63,7 +89,7 @@ continuous function of all parameters involved: if we press the point of the
 pencil a little bit harder, we get a slightly thicker line, if the violinist
 slightly misplaces his finger, he plays slightly out of tune."
 
--- `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_, 
+|endash| `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_, 
 `EWD 1036 <http://www.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html>`_
 
 Statistical thinking and the data analysis cycle

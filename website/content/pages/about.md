@@ -50,10 +50,11 @@ with a focus on the R statistical computing environment.  Topics may include:
 Your final grade will be a weighted average of grades in the following areas:
 
 * 5% participation
-* 40% labs and/or homework
-* 15% midterm
+* 10% quizzes
+* 40% homework
+* 10% midterm
 * 20% group project - due at the end of semester
-* 20% final exam
+* 15% final exam
 
 ## Course Policies
 

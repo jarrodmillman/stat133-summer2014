@@ -83,6 +83,19 @@ the instructor or GSI beforehand. Any evidence of cheating and plagiarism will
 be subject to disciplinary action.  Please read the [Honor
 Code](http://asuc.org/honorcode/index.php) carefully.
 
+**Class discussion:**  We will be using Piazza for class discussion.
+The system is highly catered to getting you help fast and efficiently from
+classmates, the GSI, and myself. Rather than emailing questions to the teaching
+staff, you should post your questions on Piazza. If you have any
+problems or feedback for the developers, email team@piazza.com.
+
+People new to programming often have a hard time asking computing questions
+in a sensible manner.  To help your fellow students, the GSI, and the instructor,
+you should review Eric Raymond's [How To Ask Questions The Smart
+Way](http://www.catb.org/esr/faqs/smart-questions.html).
+
+Find our class page at: https://piazza.com/berkeley/summer2014/statistics133/home
+
 **Students with disabilities:** If you need accommodations for any physical,
 psychological, or learning disability, please speak to me after class or during
 office hours so that we can make the necessary arrangements.

@@ -29,7 +29,9 @@ MENUITEMS = [('About',
              ('Lectures',
               'http://www.jarrodmillman.com/stat133-summer2014/pages/lectures.html'),
              ('Software',
-              'http://www.jarrodmillman.com/stat133-summer2014/pages/software.html')]
+              'http://www.jarrodmillman.com/stat133-summer2014/pages/software.html'),
+             ('Discussion',
+              'https://piazza.com/berkeley/summer2014/statistics133/home')]
 
 DISPLAY_TAGS_ON_SIDEBAR = False
 

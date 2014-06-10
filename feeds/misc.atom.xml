@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/misc.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-05-09T00:00:00-07:00</updated><entry><title>Reading 1</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading01.html" rel="alternate"></link><updated>2014-05-09T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-05-09:reading01.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 10th:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/misc.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-10T00:00:00-07:00</updated><entry><title>Lab 1</title><link href="http://www.jarrodmillman.com/stat133-summer2014/lab01.html" rel="alternate"></link><updated>2014-06-10T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-10:lab01.html</id><summary type="html">&lt;p&gt;In the first lab, we will deal with installation issues.  You will &lt;strong&gt;need&lt;/strong&gt;
+to bring your laptop to lab.  For installation instructions, please see the
+&lt;a href="http://www.jarrodmillman.com/stat133-summer2014/pages/software.html"&gt;Software&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;During future lectures and labs, we will make heavy use of Git and GitHub.
+Every student will need a Github student account for submitting their lab work:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://github.com/join"&gt;Create account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/edu"&gt;Request a student account&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary></entry><entry><title>Reading 1</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading01.html" rel="alternate"></link><updated>2014-06-09T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-09:reading01.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 10th:&lt;/p&gt;
 &lt;p&gt;L. Preeyanon, A. B. Pyrkosz, and C. T. Brown,
 &lt;a href="https://osf.io/zqbu2/"&gt;Reproducible Bioinformatics Research for Biologists&lt;/a&gt;.
 In V. Stodden, F. Leisch, and R. D. Peng, editors, &lt;a href="http://www.crcpress.com/product/isbn/9781466561595"&gt;Implementing Reproducible

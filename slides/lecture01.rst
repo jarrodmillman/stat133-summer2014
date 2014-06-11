@@ -92,6 +92,16 @@ slightly misplaces his finger, he plays slightly out of tune."
 |endash| `Edsger W. Dijkstra <https://en.wikipedia.org/wiki/Edsger_W._Dijkstra>`_, 
 `EWD 1036 <http://www.cs.utexas.edu/users/EWD/transcriptions/EWD10xx/EWD1036.html>`_
 
+
+Practices
+=========
+
+* Version control with Git/Github
+* Unit tests
+* Automation
+* Look at your data!
+* Think
+
 Statistical thinking and the data analysis cycle
 ================================================
 
@@ -116,9 +126,3 @@ Filesystems
 
 * rooted tree
 * ``pwd``, ``ls``, ``cd``
-
-Practices
-=========
-
-* Version control with Git/Github
-* Unit tests

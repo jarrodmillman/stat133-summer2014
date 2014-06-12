@@ -1,5 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/misc.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-10T00:00:00-07:00</updated><entry><title>Lab 1</title><link href="http://www.jarrodmillman.com/stat133-summer2014/lab01.html" rel="alternate"></link><updated>2014-06-10T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-10:lab01.html</id><summary type="html">&lt;p&gt;In the first lab, we will deal with installation issues.  You will &lt;strong&gt;need&lt;/strong&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/misc.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-12T00:00:00-07:00</updated><entry><title>Lab 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/lab02.html" rel="alternate"></link><updated>2014-06-12T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-12:lab02.html</id><summary type="html">&lt;p&gt;In this lab, you will:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Setup &lt;code&gt;git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create a private homework repository on Github&lt;/li&gt;
+&lt;li&gt;Create an &lt;code&gt;info.R&lt;/code&gt; file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will need:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A Github educational account&lt;/li&gt;
+&lt;li&gt;If you are using your own laptop, please install relevant &lt;a href="pages/software"&gt;software&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Setup &lt;code&gt;git&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;You will be using &lt;code&gt;git&lt;/code&gt; to submit &lt;strong&gt;every lab assignment for grading&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git&lt;/code&gt; is an extremely powerful version control system widely used in the
+open source scientific computing community.  Rather than trying to learn
+everything that you can about &lt;code&gt;git&lt;/code&gt; right away, you will only be learning
+the things you need to immediately use.  Over the next several weeks, you
+will incrementally learn how to use more of its features.&lt;/p&gt;
+&lt;p&gt;Entering &lt;code&gt;git&lt;/code&gt; at a shell prompt, will produce output something like
+this (try this on your own computer):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git
+usage: git &amp;lt;&lt;span class="nb"&gt;command&lt;/span&gt;&amp;gt; &lt;span class="o"&gt;[&lt;/span&gt;&amp;lt;args&amp;gt;&lt;span class="o"&gt;]&lt;/span&gt;
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   config     Get and &lt;span class="nb"&gt;set &lt;/span&gt;repository or global options
+   clone      Clone a repository into a new directory   
+   commit     Record changes to the repository
+   log        Show commit logs
+   push       Update remote refs along with associated objects
+   status     Show the working tree status
+
+&lt;span class="s1"&gt;&amp;#39;git help -a&amp;#39;&lt;/span&gt; and &lt;span class="s1"&gt;&amp;#39;git help -g&amp;#39;&lt;/span&gt; lists available subcommands and some
+concept guides. See &lt;span class="s1"&gt;&amp;#39;git help &amp;lt;command&amp;gt;&amp;#39;&lt;/span&gt; or &lt;span class="s1"&gt;&amp;#39;git help &amp;lt;concept&amp;gt;&amp;#39;&lt;/span&gt;
+to &lt;span class="nb"&gt;read &lt;/span&gt;about a specific subcommand or concept.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When you try this on your computer, you will see much more information.
+I've reduced the output so that it only contains information relevant
+for today's lab.&lt;/p&gt;
+&lt;p&gt;The first thing you need to do is configure &lt;code&gt;git&lt;/code&gt;.  Here is what
+I did on my machine, you should use your own name and email address!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git config --global user.name &lt;span class="s2"&gt;&amp;quot;Karl Kumbier&amp;quot;&lt;/span&gt;
+git config --global user.email &lt;span class="s2"&gt;&amp;quot;kkumbier@berkeley.edu&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create a private homework repository on Github&lt;/h2&gt;
+&lt;p&gt;Make sure you are logged onto Github.  In your user bar at the top right
+of any Github page, click the &lt;a href="https://github.com/new"&gt;"Create a New Repo"&lt;/a&gt;
+button:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create New Repo" src="http://www.jarrodmillman.com/stat133-summer2014/images/github_create_new_repo.png" /&gt;&lt;/p&gt;
+&lt;p&gt;This will take you to a new page where you will:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Name your repository "stat133"&lt;/li&gt;
+&lt;li&gt;Make sure it is private&lt;/li&gt;
+&lt;li&gt;Select "Initialize this repository with a README"&lt;/li&gt;
+&lt;li&gt;Choose "R" in the pull-down menu to add a .gitignore file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Your screen should look like this (except &lt;code&gt;karlkumbier&lt;/code&gt; will
+be replaced by your Github name):&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create New Github Repo" src="http://www.jarrodmillman.com/stat133-summer2014/images/github_new_repo.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Once you click the "Create repository" button, you should see a
+page like this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Your New Repo" src="http://www.jarrodmillman.com/stat133-summer2014/images/github_s133_repo.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In order for me to see (and grade) your private repository, you will
+need to add me as a colloborator.  In the lower right-hand corner of
+your repositories main page, you should see a button labelled
+"Settings".  Click on the "Settings" button will take you to
+a page where you can edit various settings for your repository.
+Choose the "Collaborators" button on the "Settings" page and
+add me, &lt;code&gt;karlkumbier&lt;/code&gt;, as well as the instructor, &lt;code&gt;jarrodmillman&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Github Add Collaborator" src="http://www.jarrodmillman.com/stat133-summer2014/images/github_add_collab.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Clone repository to your local machine&lt;/h3&gt;
+&lt;p&gt;First you will create a &lt;code&gt;src&lt;/code&gt; subdirectory in your home directory.
+Then you will clone your repo inside of the &lt;code&gt;src&lt;/code&gt; subdirectory.
+Please make sure to use your own Github username instead of mine.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;            &lt;span class="c"&gt;# go to your home directory&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir src     &lt;span class="c"&gt;# make a source subdirectory&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;src
+&lt;span class="nv"&gt;$ &lt;/span&gt;git clone https://github.com/karlkumbier/stat133.git
+Cloning into &lt;span class="s1"&gt;&amp;#39;stat133&amp;#39;&lt;/span&gt;...
+Username &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://github.com&amp;#39;&lt;/span&gt;: karlkumbier
+Password &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://karlkumbier@github.com&amp;#39;&lt;/span&gt;: 
+remote: Counting objects: 4, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Compressing objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;3/3&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Total 4 &lt;span class="o"&gt;(&lt;/span&gt;delta 0&lt;span class="o"&gt;)&lt;/span&gt;, reused 0 &lt;span class="o"&gt;(&lt;/span&gt;delta 0&lt;span class="o"&gt;)&lt;/span&gt;
+Unpacking objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;4/4&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+Checking connectivity... &lt;span class="k"&gt;done&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now take a look at what is inside your repo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;stat133/
+&lt;span class="nv"&gt;$ &lt;/span&gt;ls
+README.md
+&lt;span class="nv"&gt;$ &lt;/span&gt;ls -a
+.  ..  .git  .gitignore  README.md
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create an &lt;code&gt;info.R&lt;/code&gt; file&lt;/h2&gt;
+&lt;p&gt;Now that you have a local copy of your repo, you will need to add
+some new content.&lt;/p&gt;
+&lt;p&gt;First, make sure you are in the top-level directory of your newly
+cloned repository (note: you will be in the correct location if
+you haven't changed directories since entering the above commands):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you aren't in the correct directory, you need to change your working directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/src/stat133
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Open your text editor and create a new file, called &lt;code&gt;info.R&lt;/code&gt;.  Now
+add the following content (replacing the values I've set with your own):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Karl Kumbier&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;SID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;0123456789&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;name@berkeley.edu&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;github_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;karlkumbier&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;enrolled&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: &lt;code&gt;status&lt;/code&gt; in ('enrolled', 'audit')&lt;/p&gt;
+&lt;p&gt;Next you will query the status of your &lt;code&gt;git&lt;/code&gt; repo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git status 
+On branch master
+Your branch is up-to-date with &lt;span class="s1"&gt;&amp;#39;origin/master&amp;#39;&lt;/span&gt;.
+
+Untracked files:
+  &lt;span class="o"&gt;(&lt;/span&gt;use &lt;span class="s2"&gt;&amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot;&lt;/span&gt; to include in what will be committed&lt;span class="o"&gt;)&lt;/span&gt;
+
+        info.R
+
+nothing added to commit but untracked files present &lt;span class="o"&gt;(&lt;/span&gt;use &lt;span class="s2"&gt;&amp;quot;git add&amp;quot;&lt;/span&gt; to track&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As you should see, &lt;code&gt;git&lt;/code&gt; tells you that there is a new file that is not
+being tracked.  Following the advice, try adding your new file to the repo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git add info.R 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now check on the status of your repo again:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git status 
+On branch master
+Your branch is up-to-date with &lt;span class="s1"&gt;&amp;#39;origin/master&amp;#39;&lt;/span&gt;.
+
+Changes to be committed:
+  &lt;span class="o"&gt;(&lt;/span&gt;use &lt;span class="s2"&gt;&amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot;&lt;/span&gt; to unstage&lt;span class="o"&gt;)&lt;/span&gt;
+
+        new file:   info.R
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Everything looks good, so go ahead and commit your change:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;Add personal info&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;master bbc329f&lt;span class="o"&gt;]&lt;/span&gt; Add personal info
+ 1 file changed, 4 insertions&lt;span class="o"&gt;(&lt;/span&gt;+&lt;span class="o"&gt;)&lt;/span&gt;
+ create mode 100644 info.R
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next take a look at a log of what's been done:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git log 
+commit bbc329fe5f0672582a3ad3c70f5b86f4acc15f63
+Author: Karl Kumbier &amp;lt;kkumbier@berkeley.edu&amp;gt;
+Date:   Wed Jan 29 14:19:38 2014 -0800
+
+    Add personal info
+
+commit dead6f41c65e50f444760653205e21083caabfcc
+Author: Karl Kumbier &amp;lt;kkumbier@berkeley.edu&amp;gt;
+Date:   Tue Jan 28 22:29:33 2014 -0800
+
+    Initial commit
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At this point you've created a new file, added it to your
+repo, and committed the current state of your repo.  This
+was all done locally, so the next thing to do is push these
+changes back up to your remote Github repo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push 
+Username &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://github.com&amp;#39;&lt;/span&gt;: karlkumbier
+Password &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://karlkumbier@github.com&amp;#39;&lt;/span&gt;: 
+Counting objects: 4, &lt;span class="k"&gt;done&lt;/span&gt;.
+Delta compression using up to 4 threads.
+Compressing objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;3/3&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+Writing objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;3/3&lt;span class="o"&gt;)&lt;/span&gt;, 359 bytes | 0 bytes/s, &lt;span class="k"&gt;done&lt;/span&gt;.
+Total 3 &lt;span class="o"&gt;(&lt;/span&gt;delta 1&lt;span class="o"&gt;)&lt;/span&gt;, reused 0 &lt;span class="o"&gt;(&lt;/span&gt;delta 0&lt;span class="o"&gt;)&lt;/span&gt;
+To https://github.com/karlkumbier/stat133
+   dead6f4..bbc329f  master -&amp;gt; master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At this point, your Github repository main page should look
+something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Your New Repo" src="http://www.jarrodmillman.com/stat133-summer2014/images/github_s133_repo_2ndcommit.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Note that there is now a new file and the number of commits has
+been incremented to 2.&lt;/p&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary></entry><entry><title>Announcement (TextWrangler)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/announcement01.html" rel="alternate"></link><updated>2014-06-10T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-10:announcement01.html</id><summary type="html">&lt;p&gt;For those of you who installed TextWrangler today, you should note that it does
+not perform syntax highlighting for R. While this is not necessary to write
+your programs, it makes the process much easier. &lt;a href="https://files.nyu.edu/jmb736/public/projects/R.html"&gt;This
+site&lt;/a&gt; has information on
+how to add a module that supports syntax highlighting in R. Just follow the
+instructions under the Language Module part of the article. If you have any
+issues let me know.&lt;/p&gt;</summary></entry><entry><title>Lab 1</title><link href="http://www.jarrodmillman.com/stat133-summer2014/lab01.html" rel="alternate"></link><updated>2014-06-10T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-10:lab01.html</id><summary type="html">&lt;p&gt;In the first lab, we will deal with installation issues.  You will &lt;strong&gt;need&lt;/strong&gt;
 to bring your laptop to lab.  For installation instructions, please see the
 &lt;a href="http://www.jarrodmillman.com/stat133-summer2014/pages/software.html"&gt;Software&lt;/a&gt; page.&lt;/p&gt;
 &lt;p&gt;During future lectures and labs, we will make heavy use of Git and GitHub.

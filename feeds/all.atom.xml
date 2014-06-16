@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-12T00:00:00-07:00</updated><entry><title>Lab 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/lab02.html" rel="alternate"></link><updated>2014-06-12T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-12:lab02.html</id><summary type="html">&lt;p&gt;In this lab, you will:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-16T00:00:00-07:00</updated><entry><title>Reading 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading02.html" rel="alternate"></link><updated>2014-06-16T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-16:reading02.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 17th:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Daniel Lemire's &lt;a href="http://lemire.me/blog/archives/2014/05/23/you-shouldnt-use-a-spreadsheet-for-important-work-i-mean-it/"&gt;You shouldn’t use a spreadsheet for important work (I mean
+it)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Nate Silver's &lt;a href="http://fivethirtyeight.com/features/be-skeptical-of-both-piketty-and-his-skeptics/"&gt;Be Skeptical of Both Piketty And His
+Skeptics&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are interested, I also recommend this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;James Kwak's &lt;a href="http://baselinescenario.com/2013/04/18/more-bad-excel/"&gt;More bad excel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Lab 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/lab02.html" rel="alternate"></link><updated>2014-06-12T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-12:lab02.html</id><summary type="html">&lt;p&gt;In this lab, you will:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Setup &lt;code&gt;git&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Create a private homework repository on Github&lt;/li&gt;

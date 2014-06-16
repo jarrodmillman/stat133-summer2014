@@ -36,7 +36,7 @@ MENUITEMS = [('About',
 DISPLAY_TAGS_ON_SIDEBAR = False
 
 # Blogroll
-LINKS =  (('Command line', 'http://www.jarrodmillman.com/commandline'),
+LINKS =  (#('Command line', 'http://www.jarrodmillman.com/commandline'),
           ('R home', 'http://www.r-project.org/'),
           ('R docs', 'http://cran.r-project.org/manuals.html'),
           ('R seek', 'http://rseek.org/'),

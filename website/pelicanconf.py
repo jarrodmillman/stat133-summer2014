@@ -44,6 +44,6 @@ LINKS =  (('Command line', 'http://www.jarrodmillman.com/commandline'),
 
 PLUGIN_PATH = '_plugins/'
 PLUGINS = ['latex']
-STATIC_PATHS = (['images', 'data'])
+STATIC_PATHS = (['images', 'data', 'examples'])
 
 CC_LICENSE = "CC-BY-NC-SA"

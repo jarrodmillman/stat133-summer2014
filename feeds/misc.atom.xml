@@ -29,7 +29,8 @@ rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&l
 function is shown below.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;someFunction &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;arg1&lt;span class="p"&gt;,&lt;/span&gt; arg2&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 
-    &lt;span class="c1"&gt;# statement return(object)&lt;/span&gt;
+    &lt;span class="c1"&gt;# statement &lt;/span&gt;
+    &lt;span class="c1"&gt;# return(object)&lt;/span&gt;
 
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -136,7 +137,8 @@ sumDiff&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&
 jane.age &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;
 getAge &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;person&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;person &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Bob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-        &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;bob.age&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;person &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Jane&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+        &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;bob.age&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;person &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Jane&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
         &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;jane.age&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
@@ -305,7 +307,21 @@ with the divide by 0 case like we expect it to.&lt;/p&gt;&lt;script type= "text/
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary></entry><entry><title>Reading 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading02.html" rel="alternate"></link><updated>2014-06-16T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-16:reading02.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 17th:&lt;/p&gt;
+</summary></entry><entry><title>Announcement (git workflow)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/workflow.html" rel="alternate"></link><updated>2014-06-17T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-17:workflow.html</id><summary type="html">&lt;p&gt;Here's a short summary of the basic workflow that we covered today. We'll be
+using it for homeworks, quizzez, etc. so it should start to come more naturally.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Navigate to your stat133 directory (in Bash)&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;git pull&lt;/code&gt; command (in Bash)&lt;/li&gt;
+&lt;li&gt;Make changes to the files (in your text editor)&lt;/li&gt;
+&lt;li&gt;Save the changes you made (in your text editor)&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;git add &amp;lt;filename&amp;gt;&lt;/code&gt; command (in Bash)&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;git commit -m "put some informative message here"&lt;/code&gt; command (in
+Bash)&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;git push&lt;/code&gt; command (in Bash)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;At various points throughout the process, you may be prompted for you GitHub
+username and password. You can also use the &lt;code&gt;git status&lt;/code&gt; and &lt;code&gt;git diff&lt;/code&gt;
+commands (in Bash) to get more information about changes you have made.&lt;/p&gt;</summary></entry><entry><title>Reading 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading02.html" rel="alternate"></link><updated>2014-06-16T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-16:reading02.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 17th:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Daniel Lemire's &lt;a href="http://lemire.me/blog/archives/2014/05/23/you-shouldnt-use-a-spreadsheet-for-important-work-i-mean-it/"&gt;You shouldn’t use a spreadsheet for important work (I mean

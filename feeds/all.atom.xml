@@ -248,7 +248,7 @@ been incremented to 2.&lt;/p&gt;&lt;script type= "text/javascript"&gt;
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary></entry><entry><title>Section Notes 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes2.html" rel="alternate"></link><updated>2014-06-12T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-12:notes2.html</id><summary type="html">&lt;h1&gt;R Basics&lt;/h1&gt;
+</summary></entry><entry><title>Section Notes - 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes2.html" rel="alternate"></link><updated>2014-06-12T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-12:notes2.html</id><summary type="html">&lt;h1&gt;R Basics&lt;/h1&gt;
 &lt;h2&gt;Vectors&lt;/h2&gt;
 &lt;h3&gt;Commonly used functions&lt;/h3&gt;
 &lt;p&gt;Data in R is stored in vectors.  These are essentially an ordered container for

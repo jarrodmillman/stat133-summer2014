@@ -4,5 +4,5 @@
   Statistics 133: Concepts in computing with data\\[8ex]
   Instructor: Jarrod Millman\\
   GSI: Karl Kumbier \\[6ex]
-  Monday, June 9, 2014\\
+  Summer 2014
 }

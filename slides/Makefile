@@ -1,4 +1,4 @@
-FILE  = lecture01
+FILE  = lecture07
 THEME = Copenhagen
 BUILD = _build
 FLAGS = --theme=$(THEME) --stylesheet=../preamble.txt --overlaybullets=False

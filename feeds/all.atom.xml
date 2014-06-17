@@ -1,5 +1,311 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-16T00:00:00-07:00</updated><entry><title>Reading 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading02.html" rel="alternate"></link><updated>2014-06-16T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-16:reading02.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 17th:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-17T00:00:00-07:00</updated><entry><title>Section Notes - 3</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes3.html" rel="alternate"></link><updated>2014-06-17T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-17:notes3.html</id><summary type="html">&lt;h1&gt;Functions and Unit Testing&lt;/h1&gt;
+&lt;h2&gt;Functions&lt;/h2&gt;
+&lt;p&gt;Functions are an important tool for interacting with data in R. You're probably
+already familiar with the idea of functions from math classes. In R, we use
+functions to manipulate some input argument(s) and return some output
+arguments(s). You've already seen some examples of built in R functions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# Take the mean of &amp;lt;numeric.vector&amp;gt;&lt;/span&gt;
+numeric.vector &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+mean&lt;span class="p"&gt;(&lt;/span&gt;numeric.vector&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 5.5&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# Generate 10 standard normal random variables&lt;/span&gt;
+rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##  [1]  1.8051 -1.3698  0.2661  0.4697  1.0124  1.5709  0.4211  0.8027&lt;/span&gt;
+&lt;span class="c"&gt;##  [9]  0.2071  0.9277&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;R also allows you to define your own functions. The implementation of a generic
+function is shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;someFunction &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;arg1&lt;span class="p"&gt;,&lt;/span&gt; arg2&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# statement return(object)&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The following code (when the statement and return values are not commented out)
+would store a function called "someFunction" in your workspace. When called,
+someFunction would perform the computations indicated by "statement" (presumably
+on the values supplied by &lt;strong&gt;arg1&lt;/strong&gt;, &lt;strong&gt;arg2&lt;/strong&gt;, ...) and return the value
+&lt;strong&gt;object&lt;/strong&gt; (presumably a result of the computations in "statement"). It is
+important to note that &lt;em&gt;implementing&lt;/em&gt; a function is different than &lt;em&gt;calling&lt;/em&gt; the
+function. When we &lt;em&gt;implement&lt;/em&gt; a function, it is stored in your workspace for
+later use.  When we &lt;em&gt;call&lt;/em&gt; a function, we are telling R to use the stored function to actually perform the calculations associated with it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# Here, we are implementing the function &amp;#39;add&amp;#39;. This function takes two&lt;/span&gt;
+&lt;span class="c1"&gt;# arguments and returns their sum.&lt;/span&gt;
+add &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; y&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    result &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;+&lt;/span&gt; y
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;result&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Here, we are calling the function with different arguments&lt;/span&gt;
+add&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;add&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 10&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;add&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Something that is important to note with R is that functions can only return
+&lt;em&gt;one&lt;/em&gt; result. If we want to write a function that returns multiple values, we
+can get around this by having the function return a vector or list (depending on
+whether the return values are the same type). Suppose we wanted to write a
+function that returned both the sum and difference of its two arguments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# This function will throw an error when it is called when it tries to&lt;/span&gt;
+&lt;span class="c1"&gt;# return multiple results&lt;/span&gt;
+sumDiff &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; y&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    result.sum &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;+&lt;/span&gt; y
+    result.diff &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;-&lt;/span&gt; y
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;result.sum&lt;span class="p"&gt;,&lt;/span&gt; result.diff&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+sumDiff&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## Error: multi-argument returns are not permitted&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# Either of these functions will work since we combine the two return values&lt;/span&gt;
+&lt;span class="c1"&gt;# into one argument&lt;/span&gt;
+sumDiff &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; y&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    result.sum &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;+&lt;/span&gt; y
+    result.diff &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;-&lt;/span&gt; y
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;c&lt;span class="p"&gt;(&lt;/span&gt;result.sum&lt;span class="p"&gt;,&lt;/span&gt; result.diff&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+sumDiff&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 6 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;sumDiff &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; y&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    result.sum &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;+&lt;/span&gt; y
+    result.diff &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; x &lt;span class="o"&gt;-&lt;/span&gt; y
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;list&lt;span class="p"&gt;(&lt;/span&gt;s &lt;span class="o"&gt;=&lt;/span&gt; result.sum&lt;span class="p"&gt;,&lt;/span&gt; d &lt;span class="o"&gt;=&lt;/span&gt; result.diff&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+sumDiff&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## $s&lt;/span&gt;
+&lt;span class="c"&gt;## [1] 6&lt;/span&gt;
+&lt;span class="c"&gt;## &lt;/span&gt;
+&lt;span class="c"&gt;## $d&lt;/span&gt;
+&lt;span class="c"&gt;## [1] 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;A brief mention of scoping&lt;/h3&gt;
+&lt;p&gt;When you start to define functions, you'll need to think about what variables different parts of the program have access. This idea is known as &lt;em&gt;scoping&lt;/em&gt;. R uses &lt;em&gt;lexical scoping&lt;/em&gt; which means that functions access variables relative to where they are defined (as opposed to where they are called). The basic idea is that when you use a variable in the body of a function, R will first look to see if that variable is defined in the body. If it isn't, R will move to the environment in which the function was defined (i.e. your workspace or the body of another function). As with many things in R, an example should make this a bit more clear.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;bob.age &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;
+jane.age &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt;
+getAge &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;person&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;person &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Bob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+        &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;bob.age&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;person &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Jane&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+        &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;jane.age&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+getNewAge &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;person&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    bob.age &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;11&lt;/span&gt;
+    jane.age &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt;
+    getAge&lt;span class="p"&gt;(&lt;/span&gt;person&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+getNewAge&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Bob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 10&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;getNewAge&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Jane&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 12&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The definition of "getAge" requires the variables &lt;strong&gt;bob.age&lt;/strong&gt; and &lt;strong&gt;jane.age&lt;/strong&gt;. Since they are not defined in the body of the function, R looks up one level and finds them defined in the workspace. Whenever we call the function "getAge", these variables in the workspace are tied to the values that "getAge" returns. Even if we redefine the variables &lt;strong&gt;bob.age&lt;/strong&gt; and &lt;strong&gt;jane.age&lt;/strong&gt; in a new environment (the body of "getNewAge"), "getAge" will still access the variables from the workspace because of where it was defined.&lt;/p&gt;
+&lt;h2&gt;Unit Testing&lt;/h2&gt;
+&lt;p&gt;When you learned basic algebra, you were probably told to check your answer by
+plugging your result back into the equation. This is an easy test to make sure
+you performed the correct calculations. As you start to build larger projects in
+R (or any language for that matter), it becomes increasingly important to check
+that your code is performing correctly along the way. Unit testing packages in R
+provide the framework to test your code in this way. We're going to cover the
+"RUnit" package, but there are other unit testing packages that work
+well. First, you'll have to install the package using the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;RUnit&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Whenever you install a package, make sure the name is in quotes. Otherwise R
+will think you're referring to some variable in the workspace. You should get a
+prompt telling you to select a CRAN Mirror, choose CA1. After the package is
+installed, you'll need to load it using the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;library&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;RUnit&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Congratulations! You can now use all of the functions supplied in the RUnit
+package. You will have to load the package (using "library") every time you
+start a new R session, but you don't have to install it again. The most
+important functions for you to know in this package are the check functions:
+"checkEquals", "checkEqualsNumeric", "checkIdentical", "checkTrue",
+"checkException".  These functions are used to compare the output of your
+functions with some expected output (target value, logical, or exception).&lt;/p&gt;
+&lt;p&gt;If our function returns some numeric value, we can use "checkEquals" to compare
+the output of our function with the desired value:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;checkEquals&lt;span class="p"&gt;(&lt;/span&gt;add&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] TRUE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;checkEquals&lt;span class="p"&gt;(&lt;/span&gt;add&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## Error: Mean relative difference: 1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If our function returns a logical, we can check to see whether it returns TRUE
+when we expect it to:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;isPositive &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+checkTrue&lt;span class="p"&gt;(&lt;/span&gt;isPositive&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] TRUE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;checkTrue&lt;span class="p"&gt;(&lt;/span&gt;isPositive&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## Error: Test not TRUE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You'll notice that R throws an error when the check statements don't evaluate to
+TRUE. Normally, you would write your tests in such a way that the statements
+evaluate to TRUE if your function performs as you expect it to. Thus,
+an error in the test for some specific function would indicate that it is not doing what
+you expect. Often times, you'll want to use multiple tests for each function to
+check the range of input/output values you expect to use/see. However, if one of
+the tests throws an error, our program will stop running and the remaining tests
+will fail to evaluate. To prevent this, we'll use a "tryCatch"
+statement. Essentially, R will try to evaluate some statement and then perform a
+specified action if an error is thrown. We'll write a function "divide" to show
+this in action. We would like "divide" to perform standard division in R, but
+when dividing by 0 it should return NA instead of Inf.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# This is an incorrect version of the function. It will throw an error when&lt;/span&gt;
+&lt;span class="c1"&gt;# we try to run our unit tests on it&lt;/span&gt;
+
+divide &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;numerator&lt;span class="p"&gt;,&lt;/span&gt; denominator&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;numerator&lt;span class="o"&gt;/&lt;/span&gt;denominator&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+tryCatch&lt;span class="p"&gt;(&lt;/span&gt;checkIdentical&lt;span class="p"&gt;(&lt;/span&gt;divide&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kc"&gt;NA&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; error &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;err&lt;span class="p"&gt;)&lt;/span&gt; print&lt;span class="p"&gt;(&lt;/span&gt;paste&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Error:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+    err&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] &amp;quot;Error: Error in checkIdentical(divide(1, 0), NA): FALSE \n&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;tryCatch&lt;span class="p"&gt;(&lt;/span&gt;checkEquals&lt;span class="p"&gt;(&lt;/span&gt;divide&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="m"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; error &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;err&lt;span class="p"&gt;)&lt;/span&gt; print&lt;span class="p"&gt;(&lt;/span&gt;paste&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Error:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+    err&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] TRUE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we ran this code without "tryCatch", R would throw an error after the first
+test and stop running. As a result, our second test wouldn't get
+evaluated. This means we wouldn't be able to tell if there was a problem with
+our entire function or just a small part. With "tryCatch" we can test different
+evaluations of our function all at once, which helps
+isolate why the function is failing. After seeing the output in the example
+above, it would be clear that our function is dividing properly but not dealing
+with the divide by 0 case like we expect it to.&lt;/p&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary></entry><entry><title>Reading 2</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading02.html" rel="alternate"></link><updated>2014-06-16T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-16:reading02.html</id><summary type="html">&lt;p&gt;Please read this prior to class on Tuesday, June 17th:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Daniel Lemire's &lt;a href="http://lemire.me/blog/archives/2014/05/23/you-shouldnt-use-a-spreadsheet-for-important-work-i-mean-it/"&gt;You shouldn’t use a spreadsheet for important work (I mean

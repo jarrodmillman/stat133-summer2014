@@ -3,7 +3,6 @@ output
 pelican.pid
 srv.pid
 slides/_build
-slides/lecture
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

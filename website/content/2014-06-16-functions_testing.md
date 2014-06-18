@@ -42,7 +42,8 @@ function is shown below.
 ```r
 someFunction <- function(arg1, arg2, ...) {
     
-    # statement return(object)
+    # statement 
+    # return(object)
     
 }
 ```
@@ -161,7 +162,8 @@ bob.age = 10
 jane.age = 12
 getAge <- function(person) {
     if (person == "Bob") 
-        return(bob.age) else if (person == "Jane") 
+        return(bob.age) 
+	else if (person == "Jane") 
         return(jane.age)
 }
 

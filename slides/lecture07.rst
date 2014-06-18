@@ -9,6 +9,13 @@ Git introduction
 Lecture 7 & 8
 ~~~~~~~~~~~~~
 
+Credits
+=======
+
+The content of these slides was adapted from Fernando Perez' `Lecture notes (in
+IPython Notebook format) on Reproducible Science And Modern Scientific
+Software <https://github.com/fperez/reprosw>`_.
+
 Version control
 ===============
 
@@ -40,6 +47,7 @@ a **snapshot** of work at a point in time
 
 .. figure:: ../figs/commit_anatomy.png
    :alt: Credit: ProGit book, by Scott Chacon, CC License.
+   :width: 80%
 
    Credit: ProGit book, by Scott Chacon, CC License.
 
@@ -78,9 +86,21 @@ toy "implementation"::
 Stage 1: Local, single-user, linear workflow
 ============================================
 
-Simply type ``git`` (or ``git help``) to see a full list of all the
-'core' commands. We'll now go through most of these via small practical
-exercises:
+Simply type ``git`` (or ``git help``) to see a list of the
+'core' commands, which will look like this::
+
+  $ git
+  usage: git <command> [<args>]
+  
+  The most commonly used git commands are:
+     add        Add file contents to the index
+     config     Get and set options
+     clone      Clone a repository
+     commit     Record changes to the repository
+     init       Create an empty Git repository
+     log        Show commit logs
+     push       Update remote 
+     status     Show the working tree status
 
 
 ``git init``: create an empty repository
@@ -214,8 +234,10 @@ What is a branch? Simply a *label for the 'current' commit in a sequence
 of ongoing commits*:
 
 .. figure:: ../figs/masterbranch.png
-   :alt: 
    :width: 90%
+   :alt: Credit: ProGit book, by Scott Chacon, CC License.
+
+   Credit: ProGit book, by Scott Chacon, CC License.
 
 Local user, branching: the concept
 ==================================
@@ -226,8 +248,10 @@ there are two branches, *master* and *testing*, and *testing* is the
 currently active branch since it's what HEAD points to:
 
 .. figure:: ../figs/HEAD_testing.png
-   :alt: 
-   :width: 60%
+   :width: 50%
+   :alt: Credit: ProGit book, by Scott Chacon, CC License.
+
+   Credit: ProGit book, by Scott Chacon, CC License.
 
 Local user, branching: the concept
 ==================================
@@ -236,8 +260,10 @@ Once new commits are made on a branch, HEAD and the branch label move
 with the new commits:
 
 .. figure:: ../figs/branchcommit.png
-   :alt: 
-   :width: 90%
+   :width: 80%
+   :alt: Credit: ProGit book, by Scott Chacon, CC License.
+
+   Credit: ProGit book, by Scott Chacon, CC License.
 
 Local user, branching: the concept
 ==================================
@@ -245,7 +271,10 @@ Local user, branching: the concept
 This allows the history of both branches to diverge:
 
 .. figure:: ../figs/mergescenario.png
-   :alt: 
+   :width: 60%
+   :alt: Credit: ProGit book, by Scott Chacon, CC License.
+
+   Credit: ProGit book, by Scott Chacon, CC License.
 
 Local user, branching: the concept
 ==================================
@@ -255,8 +284,10 @@ information to merge the divergent branches back and continue with a
 unified line of development:
 
 .. figure:: ../figs/mergeaftermath.png
-   :alt: 
-   :width: 90%
+   :width: 80%
+   :alt: Credit: ProGit book, by Scott Chacon, CC License.
+
+   Credit: ProGit book, by Scott Chacon, CC License.
 
 Local user, branching: an example
 =================================
@@ -475,55 +506,6 @@ typically graphical tools, there are various to choose from for the
 different operating systems, and as long as they obey a basic command
 structure, git can work with any of them.
 
-Collaborating on github with a small team
-=========================================
-
-Single remote with shared access: we are going to set up a shared
-collaboration with one partner (the person sitting next to you). This
-will show the basic workflow of collaborating on a project with a small
-team where everyone has write privileges to the same repository.
-
-Note for SVN users: this is similar to the classic SVN workflow, with
-the distinction that commit and push are separate steps. SVN, having no
-local repository, commits directly to the shared central resource, so to
-a first approximation you can think of ``svn commit`` as being
-synonymous with ``git commit; git push``.
-
-Collaborating on github with a small team
-=========================================
-
-We will have two people, let's call them Alice and Bob, sharing a
-repository. Alice will be the owner of the repo and she will give Bob
-write privileges.
-
-We begin with a simple synchronization example, much like we just did
-above, but now between *two people* instead of one person. Otherwise
-it's the same:
-
--  Bob clones Alice's repository.
--  Bob makes changes to a file and commits them locally.
--  Bob pushes his changes to github.
--  Alice pulls Bob's changes into her own repository.
-
-Collaborating on github with a small team
-=========================================
-
-Next, we will have both parties make non-conflicting changes each, and
-commit them locally. Then both try to push their changes:
-
--  Alice adds a new file, ``alice.txt`` to the repo and commits.
--  Bob adds ``bob.txt`` and commits.
--  Alice pushes to github.
--  Bob tries to push to github. What happens here?
-
-The problem is that Bob's changes create a commit that conflicts with
-Alice's, so git refuses to apply them. It forces Bob to first do the
-merge on his machine, so that if there is a conflict in the merge, Bob
-deals with the conflict manually (git could try to do the merge on the
-server, but in that case if there's a conflict, the server repo would be
-left in a conflicted state without a human to fix things up). The
-solution is for Bob to first pull the changes (pull in git is really
-fetch+merge), and then push again.
 
 Learning Git
 ============

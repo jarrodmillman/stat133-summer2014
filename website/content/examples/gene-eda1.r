@@ -19,6 +19,10 @@ dimnames(gse349)[[2]]
 dim(gse349)
 summary(gse349)
 fivenum(gse349)
+IQR(gse349)
+apply(gse349, 2, IQR)
+iqrs = apply(gse349, 2, IQR)
+sd(apply(gse349, 2, IQR))
 
 hist(gse34)
 hist(gse349[,1])

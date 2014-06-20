@@ -60,8 +60,8 @@ hist(gse349[,2])
 hist(gse349[,3])
 boxplot(gse349)
 
-# Since the histograms are right skewed toward the origin, take a look
-# at the log-transform of the distribution.
+# Since the histograms are right skewed, take a look at the log-transform of
+# the distribution.
 log.exprs = log(gse349)
 hist(log.exprs)
 hist(log.exprs[,1])

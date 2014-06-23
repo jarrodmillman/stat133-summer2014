@@ -78,7 +78,7 @@ hist(log(x[x>7]))
 
 # Use apply to get summary statistics for each sample (i.e., column in
 # this case)
-apply(gse349, 2,  mean)
+apply(gse349, 2,  mean)    # colMeans would be faster and easier to read
 apply(gse349, 2,  median)
 apply(gse349, 2,  quantile, probs=0.5)
 apply(gse349, 2,  quantile, probs=0.75)

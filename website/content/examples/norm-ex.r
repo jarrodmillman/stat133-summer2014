@@ -27,6 +27,7 @@ sort(x[,2])
 sort(x[,3])
 x.sort = cbind(sort(x[,1]), sort(x[,2]), sort(x[,3]))
 # can you use apply to do this?
+#x.sort = apply(x, 2, sort)
 
 # get means
 means = rowMeans(x.sort)    # what about medians?

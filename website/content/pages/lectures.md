@@ -8,3 +8,4 @@ Slug: lectures
 * Lecture 11: [eda2]({filename}/examples/gene-eda2.r),
               [normalization1]({filename}/examples/norm-ex.r),
               [normalization2]({filename}/examples/quantile-normalization.r)
+* Lecture 12: [eda3]({filename}/examples/gene-eda3.r),

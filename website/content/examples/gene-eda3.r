@@ -45,18 +45,3 @@ cols[train$status]
 
 boxplot(train$norm, col=cols[train$status], main=train$title)
 boxplot(test$norm, col=cols[train$status],main=test$title)
-
-train$pca = prcomp(t(train$norm))
-plot(train$pca$x[,1:2], col=cols[train$status], main=train$title)
-plot(train$pca$x[,2:3], col=cols[train$status], main=train$title)
-
-
-test$pca = prcomp(t(test$norm))
-plot(test$pca$x[,2:3], col=cols[test$status], main=test$title)
-plot(test$pca$x[,1:2], col=cols[test$status], main=test$title)
-
-image(as.matrix(cor(train$norm)))
-image(as.matrix(cor(test$norm)))
-
-image(as.matrix(dist(t(train$norm))))
-image(as.matrix(dist(t(test$norm))))

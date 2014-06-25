@@ -13,7 +13,8 @@ train = list()
 test = list()
 
 train$title = "Training"
-test$title = "Test"
+test$title = "Test (w/out Test95)"
+test$all.title = "Test"
 training = data$info$sampleGroup == "Training"
 cols=c("red", "blue")
 
@@ -30,21 +31,29 @@ test$status = test$all.status[good]
 source('quantile-normalization.r')
 train$norm = quantile.norm(train$log)
 test$norm = quantile.norm(test$log)
+test$all.norm = quantile.norm(test$all.log)
 
 boxplot(train$norm, col=cols[train$status], main=train$title)
-boxplot(test$norm, col=cols[train$status],main=test$title)
+boxplot(test$norm, col=cols[test$status],main=test$title)
+boxplot(test$all.norm, col=cols[test$all.status],main=test$all.title)
 
 train$pca = prcomp(t(train$norm))
 plot(train$pca$x[,1:2], col=cols[train$status], main=train$title)
 plot(train$pca$x[,2:3], col=cols[train$status], main=train$title)
 
+test$all.pca = prcomp(t(test$all.norm))
+plot(test$all.pca$x[,2:3], col=cols[test$all.status], main=test$all.title)
+plot(test$all.pca$x[,1:2], col=cols[test$all.status], main=test$all.title)
 
 test$pca = prcomp(t(test$norm))
 plot(test$pca$x[,2:3], col=cols[test$status], main=test$title)
 plot(test$pca$x[,1:2], col=cols[test$status], main=test$title)
 
-image(as.matrix(cor(train$norm)))
-image(as.matrix(cor(test$norm)))
+image(as.matrix(cor(train$norm)), col=grey(seq(0,1,length=256)))
+image(as.matrix(cor(test$norm)), col=grey(seq(0,1,length=256)))
+
+image(as.matrix(cor(train$norm) > 0.9999), col=grey(seq(0,1,length=256)))
+image(as.matrix(cor(test$norm) > 0.9999), col=grey(seq(0,1,length=256)))
 
 image(as.matrix(dist(t(train$norm))))
 image(as.matrix(dist(t(test$norm))))

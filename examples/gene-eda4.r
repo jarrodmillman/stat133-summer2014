@@ -39,8 +39,8 @@ boxplot(test$norm, col=cols[test$status], main=test$title)
 boxplot(test.all$norm, col=cols[test.all$status], main=test.all$title)
 
 ## PCA
-pca.plot <- function(d) {
-    pca = prcomp(t(d$norm))
+pca.plot <- function(d, type="norm") {
+    pca = prcomp(t(d[[type]]))
     plot(pca, main=d$title)
     plot(pca$x[,1:2], col=cols[d$status], main=d$title)
     legend("topright", c("Sensitive", "Resistant"), fill=cols)
@@ -54,7 +54,7 @@ pca.plot(test)
 
 ## Correlation
 cor.plot = function(d, threshold=FALSE) {
-    if threshold {
+    if (threshold) {
         img = as.matrix(cor(d$norm) > 0.9999)
     } else {
         img = as.matrix(cor(d$norm))

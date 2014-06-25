@@ -38,6 +38,7 @@ boxplot(train$norm, col=cols[train$status], main=train$title)
 boxplot(test$norm, col=cols[test$status], main=test$title)
 boxplot(test.all$norm, col=cols[test.all$status], main=test.all$title)
 
+## PCA
 pca.plot <- function(d) {
     pca = prcomp(t(d$norm))
     plot(pca, main=d$title)
@@ -51,11 +52,23 @@ pca.plot(train)
 pca.plot(test.all)
 pca.plot(test)
 
-image(as.matrix(cor(train$norm)), col=grey(seq(0,1,length=256)))
-image(as.matrix(cor(test$norm)), col=grey(seq(0,1,length=256)))
+## Correlation
+cor.plot = function(d, threshold=FALSE) {
+    if threshold {
+        img = as.matrix(cor(d$norm) > 0.9999)
+    } else {
+        img = as.matrix(cor(d$norm))
+    }
+    cols = grey(seq(0,1,length=256))
+    image(img, col=cols)
+}
 
-image(as.matrix(cor(train$norm) > 0.9999), col=grey(seq(0,1,length=256)))
-image(as.matrix(cor(test$norm) > 0.9999), col=grey(seq(0,1,length=256)))
+cor.plot(train)
+cor.plot(test)
+
+cor.plot(train, threshold=TRUE)
+cor.plot(test, threshold=TRUE)
+
 
 image(as.matrix(dist(t(train$norm))))
 image(as.matrix(dist(t(test$norm))))

@@ -5,7 +5,7 @@ median.norm = function(x) {
     medians = apply(x, 2, median)
     reference = mean(medians)
     d = reference - medians
-    norm = sapply(1:14,  function(i) x[,i]+d[i])
+    norm = sapply(1:ncol(x),  function(i) x[,i]+d[i])
     dimnames(norm) = dimnames(x)
     return(norm)
 }

@@ -11,43 +11,45 @@ suspect = "Test95"
 
 train = list()
 test = list()
+test.all = list()
 
 train$title = "Training"
 test$title = "Test (w/out Test95)"
-test$all.title = "Test"
+test.all$title = "Test"
 training = data$info$sampleGroup == "Training"
 cols=c("red", "blue")
 
 train$log = data$log[, data$info$sampleGroup == "Training"]
-test$all.log = data$log[, data$info$sampleGroup == "Test"]
-good = names(test$all.log) != suspect
-test$log = test$all.log[, good]
+test.all$log = data$log[, data$info$sampleGroup == "Test"]
+good = names(test.all$log) != suspect
+test$log = test.all$log[, good]
 
 train$status = data$info[training, "status"]
-test$all.status = data$info[!training, "status"]
-test$status = test$all.status[good]
+test.all$status = data$info[!training, "status"]
+test$status = test.all$status[good]
 
 # normalize
 source('quantile-normalization.r')
 train$norm = quantile.norm(train$log)
 test$norm = quantile.norm(test$log)
-test$all.norm = quantile.norm(test$all.log)
+test.all$norm = quantile.norm(test.all$log)
 
 boxplot(train$norm, col=cols[train$status], main=train$title)
-boxplot(test$norm, col=cols[test$status],main=test$title)
-boxplot(test$all.norm, col=cols[test$all.status],main=test$all.title)
+boxplot(test$norm, col=cols[test$status], main=test$title)
+boxplot(test.all$norm, col=cols[test.all$status], main=test.all$title)
 
-train$pca = prcomp(t(train$norm))
-plot(train$pca$x[,1:2], col=cols[train$status], main=train$title)
-plot(train$pca$x[,2:3], col=cols[train$status], main=train$title)
+pca.plot <- function(d) {
+    pca = prcomp(t(d$norm))
+    plot(pca, main=d$title)
+    plot(pca$x[,1:2], col=cols[d$status], main=d$title)
+    legend("topright", c("Sensitive", "Resistant"), fill=cols)
+    plot(pca$x[,2:3], col=cols[d$status], main=d$title)
+    legend("topright", c("Sensitive", "Resistant"), fill=cols)
+}
 
-test$all.pca = prcomp(t(test$all.norm))
-plot(test$all.pca$x[,2:3], col=cols[test$all.status], main=test$all.title)
-plot(test$all.pca$x[,1:2], col=cols[test$all.status], main=test$all.title)
-
-test$pca = prcomp(t(test$norm))
-plot(test$pca$x[,2:3], col=cols[test$status], main=test$title)
-plot(test$pca$x[,1:2], col=cols[test$status], main=test$title)
+pca.plot(train)
+pca.plot(test.all)
+pca.plot(test)
 
 image(as.matrix(cor(train$norm)), col=grey(seq(0,1,length=256)))
 image(as.matrix(cor(test$norm)), col=grey(seq(0,1,length=256)))

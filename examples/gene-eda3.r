@@ -1,4 +1,4 @@
-load("../data/doxorubicin07.rda")
+load(url("http://www.jarrodmillman.com/stat133-summer2014/data/doxorubicin07.rda"))
 class(doxorubicin07Numbers)
 barplot(colMeans(doxorubicin07Numbers))
 barplot(colMeans(doxorubicin07Numbers[,100:130]), las=2)
@@ -11,6 +11,10 @@ max(subset(doxorubicin07Numbers, select=-Test95))
 max(subset(doxorubicin07Numbers, select=Test95))
 
 boxplot(doxorubicin07Numbers[,100:130])
+
+head(doxorubicin07Info)
+class(doxorubicin07Info$sampleGroup)
+levels(doxorubicin07Info$sampleGroup)
 
 full = list()
 train = list()
@@ -41,18 +45,3 @@ cols[train$status]
 
 boxplot(train$norm, col=cols[train$status], main=train$title)
 boxplot(test$norm, col=cols[train$status],main=test$title)
-
-train$pca = prcomp(t(train$norm))
-plot(train$pca$x[,1:2], col=cols[train$status], main=train$title)
-plot(train$pca$x[,2:3], col=cols[train$status], main=train$title)
-
-
-test$pca = prcomp(t(test$norm))
-plot(test$pca$x[,2:3], col=cols[test$status], main=test$title)
-plot(test$pca$x[,1:2], col=cols[test$status], main=test$title)
-
-image(as.matrix(cor(train$norm)))
-image(as.matrix(cor(test$norm)))
-
-image(as.matrix(dist(t(train$norm))))
-image(as.matrix(dist(t(test$norm))))

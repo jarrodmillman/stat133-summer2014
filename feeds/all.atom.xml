@@ -1,5 +1,465 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-23T00:00:00-07:00</updated><entry><title>Reading 4</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading04.html" rel="alternate"></link><updated>2014-06-23T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-23:reading04.html</id><summary type="html">&lt;p&gt;Please watch the following videos by the beginning of class on Friday,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-25T00:00:00-07:00</updated><entry><title>Section Notes - 4</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes4.html" rel="alternate"></link><updated>2014-06-25T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-25:notes4.html</id><summary type="html">&lt;h1&gt;Apply functions in R&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt;'s &lt;code&gt;apply&lt;/code&gt; functions are the efficient way to perform repeated
+operations on vectors of your data. There are many variants of the "apply"
+statement as well as wrappers for special cases of these
+functions easier. These notes will cover the &lt;code&gt;apply&lt;/code&gt; statements and
+wrappers that are most commonly used in data analysis. Much of what we discuss
+here carries over to other &lt;code&gt;apply&lt;/code&gt; statements as well.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;apply&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The first function we'll look at is &lt;code&gt;apply&lt;/code&gt;. This function applies a given
+function to each element of a data structure with defined dimension
+(i.e. matrices, arrays, data frames). The elements that &lt;code&gt;apply&lt;/code&gt; operates on are
+the rows/columns of matrices and data frames (or the sub-matrices of arrays). In
+other words, if you want to apply some function to the rows or columns of your
+data, you should use the &lt;code&gt;apply&lt;/code&gt; function. When you call &lt;code&gt;apply&lt;/code&gt;, you must
+supply the function with the object you want to operate on (&lt;code&gt;X&lt;/code&gt;), the dimension(s)
+you would like to apply the function over (&lt;code&gt;MARGIN&lt;/code&gt;), and the function you would
+like to perform (&lt;code&gt;FUN&lt;/code&gt;). There are a few things to note about these arguments
+before proceeding to our examples.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;X&lt;/code&gt; must have positive dimension. You can easily check this by running
+dim(&lt;code&gt;X&lt;/code&gt;). Note that vectors and lists do not satisfy this requirement.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For the &lt;code&gt;MARGIN&lt;/code&gt; argument, 1 indicates rows and 2 indicates columns. If you
+are using higher dimensional arrays, integers that correspond to any of the
+other dimensions are accepatable as well.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;you may specify additional arguments to your function following the &lt;code&gt;FUN&lt;/code&gt;
+argument.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;apply&lt;/code&gt; will return the vector, matrix or list that results from applying &lt;code&gt;FUN&lt;/code&gt;
+to each row or column as defined by &lt;code&gt;MARGIN&lt;/code&gt;. Whenever possible, &lt;code&gt;apply&lt;/code&gt; will
+try to simplify the results of its return into a matrix or vector. If &lt;code&gt;FUN&lt;/code&gt;
+returns objects with different lengths when applied to the various rows/columns,
+the returned object will be a list. Lets look at a few examples.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sample.matrix &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; matrix&lt;span class="p"&gt;(&lt;/span&gt;sample&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;15&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; ncol &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+sample.matrix
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##      [,1] [,2] [,3] [,4] [,5]&lt;/span&gt;
+&lt;span class="c"&gt;## [1,]   15    8   12   10    2&lt;/span&gt;
+&lt;span class="c"&gt;## [2,]    7   11    5    6   14&lt;/span&gt;
+&lt;span class="c"&gt;## [3,]    3    4   13    1    9&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# basic apply statements that calculate the mean of rows and columns&lt;/span&gt;
+row.means &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;)&lt;/span&gt;
+col.means &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;)&lt;/span&gt;
+row.means
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 9.4 8.6 6.0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;col.means
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1]  8.333  7.667 10.000  5.667  8.333&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# faster way to accomplish the same thing&lt;/span&gt;
+row.means &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; rowMeans&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;)&lt;/span&gt;
+col.means &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; colMeans&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;)&lt;/span&gt;
+row.means
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 9.4 8.6 6.0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;col.means
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1]  8.333  7.667 10.000  5.667  8.333&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A few of the functions that are frequently used by statisticians (&lt;code&gt;sum&lt;/code&gt;
+and &lt;code&gt;mean&lt;/code&gt;) have slightly faster implementations of an &lt;code&gt;apply&lt;/code&gt; statment used to
+do the same thing. However, using an &lt;code&gt;apply&lt;/code&gt; statement allows us to pass in
+additional arguments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# you can pass in additional arguments after defining the function. Any&lt;/span&gt;
+&lt;span class="c1"&gt;# arguments not passed in will use the function&amp;#39;s default value&lt;/span&gt;
+
+row.means.trimmed &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;,&lt;/span&gt; trim &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;0.35&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+col.means.trimmed &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;,&lt;/span&gt; trim &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;0.35&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+row.means.trimmed
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] 10.000  8.000  5.333&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;col.means.trimmed
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1]  7  8 12  6  9&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can also define your own functions for the &lt;code&gt;FUN&lt;/code&gt; argument. User defined
+functions will take the row or column as their argument depending on the value
+you specified for &lt;code&gt;MARGIN&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;overall.mean &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; mean&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;)&lt;/span&gt;
+
+row.value &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;row&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    value &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;mean&lt;span class="p"&gt;(&lt;/span&gt;row&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; overall.mean&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;sd&lt;span class="p"&gt;(&lt;/span&gt;row&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;value&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+
+col.value &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply&lt;span class="p"&gt;(&lt;/span&gt;sample.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;col&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    value &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;mean&lt;span class="p"&gt;(&lt;/span&gt;col&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; overall.mean&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;sd&lt;span class="p"&gt;(&lt;/span&gt;col&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;value&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+
+row.value
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1]  0.2870  0.1587 -0.4082&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;col.value
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1]  0.05455 -0.09492  0.45883 -0.51745  0.05530&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As we mentioned, when our functions return objects of varying lengths &lt;code&gt;apply&lt;/code&gt;
+will return a list.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;param.matrix &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; matrix&lt;span class="p"&gt;(&lt;/span&gt;c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; ncol &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+param.matrix
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##      [,1] [,2]&lt;/span&gt;
+&lt;span class="c"&gt;## [1,]    5    0&lt;/span&gt;
+&lt;span class="c"&gt;## [2,]   10    5&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# generate a list of length with 5 samples of mean 0 normal variables and 10&lt;/span&gt;
+&lt;span class="c1"&gt;# samples of mean 5 variables&lt;/span&gt;
+apply&lt;span class="p"&gt;(&lt;/span&gt;param.matrix&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;row&lt;span class="p"&gt;)&lt;/span&gt; rnorm&lt;span class="p"&gt;(&lt;/span&gt;row&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; row&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [[1]]&lt;/span&gt;
+&lt;span class="c"&gt;## [1] -0.2734  0.2565  1.0476  2.1080  0.1782&lt;/span&gt;
+&lt;span class="c"&gt;## &lt;/span&gt;
+&lt;span class="c"&gt;## [[2]]&lt;/span&gt;
+&lt;span class="c"&gt;##  [1] 5.059 3.139 6.402 6.015 4.699 5.704 4.677 5.341 5.737 4.789&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;&lt;code&gt;sapply&lt;/code&gt; (&lt;code&gt;lapply&lt;/code&gt;)&lt;/h2&gt;
+&lt;p&gt;The next functions that we will look at are similar to &lt;code&gt;apply&lt;/code&gt; in that they
+are used to loop over a data structure and apply some function to the elements
+of that data structure. Unlike &lt;code&gt;apply&lt;/code&gt;, they operate on data structures with
+undefined dimension (i.e. lists and vectors). These functions are &lt;code&gt;sapply&lt;/code&gt; and
+&lt;code&gt;lapply&lt;/code&gt;. Actually, &lt;code&gt;sapply&lt;/code&gt; is just a wrapper for &lt;code&gt;lapply&lt;/code&gt; that tries to
+simplify the returned value into a vector or matrix where possible. We use
+&lt;code&gt;sapply&lt;/code&gt; in our examples with the knowledge that if we wanted to return a list
+we could use &lt;code&gt;lapply&lt;/code&gt; instead. When you call &lt;code&gt;sapply&lt;/code&gt; (or &lt;code&gt;lapply&lt;/code&gt;) you need to
+supply it with the data structure that will get looped over (&lt;code&gt;X&lt;/code&gt;) and a function
+to apply to each element of that data structure (&lt;code&gt;FUN&lt;/code&gt;). There are a few things
+to note&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Running &lt;code&gt;sapply&lt;/code&gt; on a data frame will perform &lt;code&gt;FUN&lt;/code&gt; on each of the vectors in
+  that comprise it (remember data frames are just lists of vectors of equal
+  length).&lt;/li&gt;
+&lt;li&gt;Running &lt;code&gt;sapply&lt;/code&gt; on a matrix or array will coerce the object into a list and
+  then apply &lt;code&gt;FUN&lt;/code&gt; to the individual elements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sample.list &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; list&lt;span class="p"&gt;(&lt;/span&gt;samp1 &lt;span class="o"&gt;=&lt;/span&gt; rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; samp2 &lt;span class="o"&gt;=&lt;/span&gt; rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; samp3 &lt;span class="o"&gt;=&lt;/span&gt; rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+    &lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;# The objects we call sapply on don&amp;#39;t have defined dimension so we don&amp;#39;t&lt;/span&gt;
+&lt;span class="c1"&gt;# need a MARGIN argument. Other than that the function calls are similar&lt;/span&gt;
+
+sapply&lt;span class="p"&gt;(&lt;/span&gt;sample.list&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##   samp1   samp2   samp3 &lt;/span&gt;
+&lt;span class="c"&gt;## -0.4709  4.4661 10.5416&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;sapply&lt;span class="p"&gt;(&lt;/span&gt;sample.list&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;,&lt;/span&gt; trim &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;0.35&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##   samp1   samp2   samp3 &lt;/span&gt;
+&lt;span class="c"&gt;## -0.3927  4.4029 10.6850&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;sapply&lt;span class="p"&gt;(&lt;/span&gt;sample.list&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;list.element&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    value &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; mean&lt;span class="p"&gt;(&lt;/span&gt;list.element&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;sd&lt;span class="p"&gt;(&lt;/span&gt;list.element&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##   samp1   samp2   samp3 &lt;/span&gt;
+&lt;span class="c"&gt;## -0.3283  9.3778  9.5501&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When we call &lt;code&gt;sapply&lt;/code&gt; (or &lt;code&gt;lapply&lt;/code&gt;) on a data frame it acts on the vectors that
+make up the data frame.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# built in R dataset on regional levels of different socioeconomic&lt;/span&gt;
+&lt;span class="c1"&gt;# indicators in Switzerland&lt;/span&gt;
+head&lt;span class="p"&gt;(&lt;/span&gt;swiss&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##              Fertility Agriculture Examination Education Catholic&lt;/span&gt;
+&lt;span class="c"&gt;## Courtelary        80.2        17.0          15        12     9.96&lt;/span&gt;
+&lt;span class="c"&gt;## Delemont          83.1        45.1           6         9    84.84&lt;/span&gt;
+&lt;span class="c"&gt;## Franches-Mnt      92.5        39.7           5         5    93.40&lt;/span&gt;
+&lt;span class="c"&gt;## Moutier           85.8        36.5          12         7    33.77&lt;/span&gt;
+&lt;span class="c"&gt;## Neuveville        76.9        43.5          17        15     5.16&lt;/span&gt;
+&lt;span class="c"&gt;## Porrentruy        76.1        35.3           9         7    90.57&lt;/span&gt;
+&lt;span class="c"&gt;##              Infant.Mortality&lt;/span&gt;
+&lt;span class="c"&gt;## Courtelary               22.2&lt;/span&gt;
+&lt;span class="c"&gt;## Delemont                 22.2&lt;/span&gt;
+&lt;span class="c"&gt;## Franches-Mnt             20.2&lt;/span&gt;
+&lt;span class="c"&gt;## Moutier                  20.3&lt;/span&gt;
+&lt;span class="c"&gt;## Neuveville               20.6&lt;/span&gt;
+&lt;span class="c"&gt;## Porrentruy               26.6&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;swiss.subset &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; swiss&lt;span class="p"&gt;[,&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Fertility&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Agriculture&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Education&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Infant.Mortality&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# lets look the mean and standard deviation of each of the variables&lt;/span&gt;
+sapply&lt;span class="p"&gt;(&lt;/span&gt;swiss.subset&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##        Fertility      Agriculture        Education Infant.Mortality &lt;/span&gt;
+&lt;span class="c"&gt;##            70.14            50.66            10.98            19.94&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;sapply&lt;span class="p"&gt;(&lt;/span&gt;swiss.subset&lt;span class="p"&gt;,&lt;/span&gt; sd&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##        Fertility      Agriculture        Education Infant.Mortality &lt;/span&gt;
+&lt;span class="c"&gt;##           12.492           22.711            9.615            2.913&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# we can even plot histograms of the data by variable&lt;/span&gt;
+par&lt;span class="p"&gt;(&lt;/span&gt;mfrow &lt;span class="o"&gt;=&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;# this is a nice function to put multiple plots on one page&lt;/span&gt;
+sapply&lt;span class="p"&gt;(&lt;/span&gt;swiss.subset&lt;span class="p"&gt;,&lt;/span&gt; hist&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="plot of chunk unnamed-chunk-6" src="figure/unnamed-chunk-6.png" /&gt; &lt;/p&gt;
+&lt;p&gt;Unfortunately, the names for the histograms aren't particularly helpful. You
+could try to adjust this by supplying additional arguments to the hist function&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var.names &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; names&lt;span class="p"&gt;(&lt;/span&gt;swiss.subset&lt;span class="p"&gt;)&lt;/span&gt;
+var.names
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## [1] &amp;quot;Fertility&amp;quot;        &amp;quot;Agriculture&amp;quot;      &amp;quot;Education&amp;quot;       &lt;/span&gt;
+&lt;span class="c"&gt;## [4] &amp;quot;Infant.Mortality&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;par&lt;span class="p"&gt;(&lt;/span&gt;mfrow &lt;span class="o"&gt;=&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+sapply&lt;span class="p"&gt;(&lt;/span&gt;swiss.subset&lt;span class="p"&gt;,&lt;/span&gt; hist&lt;span class="p"&gt;,&lt;/span&gt; xlab &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;observed value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; main &lt;span class="o"&gt;=&lt;/span&gt; var.names&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="plot of chunk unnamed-chunk-7" src="figure/unnamed-chunk-7.png" /&gt; &lt;/p&gt;
+&lt;p&gt;Instead of labeling each plotwith the correct variable name, R prints every
+string in &lt;code&gt;var.names&lt;/code&gt; for each plot. Not exactly what we were looking for. This
+is because the functions we apply to the elements of our data structure are
+constant. In other words, the only inputs to &lt;code&gt;FUN&lt;/code&gt; that change are the elements
+of our data structure. Thankfully, R provides the function &lt;code&gt;mapply&lt;/code&gt; to help us
+get around this.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;mapply&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;mapply&lt;/code&gt; function works much like &lt;code&gt;sapply&lt;/code&gt; or &lt;code&gt;lapply&lt;/code&gt;. With &lt;code&gt;mapply&lt;/code&gt;
+though, our functions are not limited to a single varying argument. The call for
+&lt;code&gt;mapply&lt;/code&gt; is a little different from the other apply functions. We first need to
+specify our function then we provide the data structure that the function
+operates on. Our histogram example would look something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;var.names &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; names&lt;span class="p"&gt;(&lt;/span&gt;swiss.subset&lt;span class="p"&gt;)&lt;/span&gt;
+par&lt;span class="p"&gt;(&lt;/span&gt;mfrow &lt;span class="o"&gt;=&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+mapply&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;variable&lt;span class="p"&gt;,&lt;/span&gt; var.name&lt;span class="p"&gt;)&lt;/span&gt; hist&lt;span class="p"&gt;(&lt;/span&gt;variable&lt;span class="p"&gt;,&lt;/span&gt; main &lt;span class="o"&gt;=&lt;/span&gt; var.name&lt;span class="p"&gt;,&lt;/span&gt; xlab &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;observed value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; 
+    swiss.subset&lt;span class="p"&gt;,&lt;/span&gt; var.names&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="plot of chunk unnamed-chunk-8" src="figure/unnamed-chunk-8.png" /&gt; &lt;/p&gt;
+&lt;p&gt;Notice that the order we provide the different variables at the end of our
+&lt;code&gt;mapply&lt;/code&gt; statement needs to be the same as the order they are called in the
+function. Further, &lt;code&gt;mapply&lt;/code&gt; is not restricted to only two variables. As long as
+we make sure the orders correspond we may use as many variables as we like.&lt;/p&gt;
+&lt;h2&gt;Apply wrappers: &lt;code&gt;by&lt;/code&gt; and &lt;code&gt;replicate&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Some apply function tasks are so common amongst R users that the language
+includes wrappers for them. Chief among these are &lt;code&gt;by&lt;/code&gt; and &lt;code&gt;replicate&lt;/code&gt;. &lt;code&gt;by&lt;/code&gt;
+statements are useful when trying to run functions on various subsets of your
+data. Consider the "mtcars" dataset that is built into R and suppose we wanted
+to calculate the average mpg of a car by number of cylinders in the engine.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;head&lt;span class="p"&gt;(&lt;/span&gt;mtcars&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb&lt;/span&gt;
+&lt;span class="c"&gt;## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4&lt;/span&gt;
+&lt;span class="c"&gt;## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4&lt;/span&gt;
+&lt;span class="c"&gt;## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1&lt;/span&gt;
+&lt;span class="c"&gt;## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1&lt;/span&gt;
+&lt;span class="c"&gt;## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2&lt;/span&gt;
+&lt;span class="c"&gt;## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# the arguments for a by statment are data, subset factor, function in that&lt;/span&gt;
+&lt;span class="c1"&gt;# order&lt;/span&gt;
+by&lt;span class="p"&gt;(&lt;/span&gt;mtcars&lt;span class="o"&gt;$&lt;/span&gt;mpg&lt;span class="p"&gt;,&lt;/span&gt; mtcars&lt;span class="o"&gt;$&lt;/span&gt;cyl&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## mtcars$cyl: 4&lt;/span&gt;
+&lt;span class="c"&gt;## [1] 26.66&lt;/span&gt;
+&lt;span class="c"&gt;## -------------------------------------------------------- &lt;/span&gt;
+&lt;span class="c"&gt;## mtcars$cyl: 6&lt;/span&gt;
+&lt;span class="c"&gt;## [1] 19.74&lt;/span&gt;
+&lt;span class="c"&gt;## -------------------------------------------------------- &lt;/span&gt;
+&lt;span class="c"&gt;## mtcars$cyl: 8&lt;/span&gt;
+&lt;span class="c"&gt;## [1] 15.1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# we can use sapply statement to look at the average of several variables by&lt;/span&gt;
+&lt;span class="c1"&gt;# number of cylinders&lt;/span&gt;
+sapply&lt;span class="p"&gt;(&lt;/span&gt;mtcars&lt;span class="p"&gt;[,&lt;/span&gt; c&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mpg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;hp&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;wt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)],&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;var&lt;span class="p"&gt;)&lt;/span&gt; by&lt;span class="p"&gt;(&lt;/span&gt;var&lt;span class="p"&gt;,&lt;/span&gt; mtcars&lt;span class="o"&gt;$&lt;/span&gt;cyl&lt;span class="p"&gt;,&lt;/span&gt; mean&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##     mpg     hp    wt&lt;/span&gt;
+&lt;span class="c"&gt;## 4 26.66  82.64 2.286&lt;/span&gt;
+&lt;span class="c"&gt;## 6 19.74 122.29 3.117&lt;/span&gt;
+&lt;span class="c"&gt;## 8 15.10 209.21 3.999&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;replicate&lt;/code&gt; statements are useful for simulations and fairly simple to
+implement. These statements produce a specified number of replicates of a given
+statement. For instance, if we wanted to produce 10 simulations of sampling 25
+random uniform variables&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;replicate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; runif&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;25&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;##            [,1]    [,2]    [,3]    [,4]    [,5]   [,6]    [,7]    [,8]&lt;/span&gt;
+&lt;span class="c"&gt;##  [1,] 0.5748392 0.28749 0.00349 0.44652 0.13699 0.3699 0.51512 0.69841&lt;/span&gt;
+&lt;span class="c"&gt;##  [2,] 0.0010590 0.93278 0.47812 0.87892 0.35814 0.3688 0.77206 0.40563&lt;/span&gt;
+&lt;span class="c"&gt;##  [3,] 0.0001907 0.89475 0.87006 0.78308 0.70703 0.3261 0.42233 0.14024&lt;/span&gt;
+&lt;span class="c"&gt;##  [4,] 0.3188565 0.47157 0.86951 0.13302 0.91671 0.2523 0.86594 0.86434&lt;/span&gt;
+&lt;span class="c"&gt;##  [5,] 0.9853210 0.81585 0.45488 0.40766 0.90607 0.6450 0.47121 0.12542&lt;/span&gt;
+&lt;span class="c"&gt;##  [6,] 0.7024356 0.90947 0.46666 0.53455 0.69911 0.2381 0.62024 0.94814&lt;/span&gt;
+&lt;span class="c"&gt;##  [7,] 0.2249691 0.66061 0.70574 0.47489 0.73907 0.2238 0.55454 0.61841&lt;/span&gt;
+&lt;span class="c"&gt;##  [8,] 0.1353921 0.20309 0.27294 0.05341 0.42293 0.9872 0.47972 0.49680&lt;/span&gt;
+&lt;span class="c"&gt;##  [9,] 0.4470449 0.44555 0.24052 0.05491 0.08967 0.6046 0.17333 0.27853&lt;/span&gt;
+&lt;span class="c"&gt;## [10,] 0.9385163 0.67798 0.95618 0.99885 0.45088 0.1313 0.97006 0.07001&lt;/span&gt;
+&lt;span class="c"&gt;## [11,] 0.0982774 0.50816 0.56374 0.94642 0.49484 0.7884 0.77314 0.63851&lt;/span&gt;
+&lt;span class="c"&gt;## [12,] 0.2711856 0.86542 0.54552 0.20941 0.12294 0.7534 0.63229 0.27112&lt;/span&gt;
+&lt;span class="c"&gt;## [13,] 0.4084631 0.37047 0.48257 0.78127 0.80352 0.3549 0.08938 0.35646&lt;/span&gt;
+&lt;span class="c"&gt;## [14,] 0.3299767 0.99052 0.89554 0.68312 0.74825 0.3454 0.71481 0.37773&lt;/span&gt;
+&lt;span class="c"&gt;## [15,] 0.9147518 0.37893 0.17761 0.18310 0.35805 0.6820 0.26136 0.86034&lt;/span&gt;
+&lt;span class="c"&gt;## [16,] 0.4389611 0.11486 0.20609 0.37435 0.74195 0.0718 0.76355 0.30815&lt;/span&gt;
+&lt;span class="c"&gt;## [17,] 0.5641979 0.12247 0.86493 0.22845 0.53164 0.7486 0.23534 0.70235&lt;/span&gt;
+&lt;span class="c"&gt;## [18,] 0.9340997 0.11293 0.68794 0.76306 0.68938 0.4741 0.77426 0.29306&lt;/span&gt;
+&lt;span class="c"&gt;## [19,] 0.7925815 0.65003 0.09922 0.08144 0.46391 0.3626 0.91598 0.03533&lt;/span&gt;
+&lt;span class="c"&gt;## [20,] 0.5656450 0.46962 0.49972 0.04007 0.04784 0.8274 0.50144 0.48898&lt;/span&gt;
+&lt;span class="c"&gt;## [21,] 0.1160394 0.30752 0.92019 0.57434 0.68835 0.1342 0.18251 0.36334&lt;/span&gt;
+&lt;span class="c"&gt;## [22,] 0.0960271 0.66276 0.14329 0.08054 0.98979 0.4877 0.93420 0.96727&lt;/span&gt;
+&lt;span class="c"&gt;## [23,] 0.0618901 0.21379 0.27903 0.32398 0.71879 0.8374 0.35423 0.78674&lt;/span&gt;
+&lt;span class="c"&gt;## [24,] 0.3905563 0.66687 0.95751 0.20393 0.94135 0.7348 0.14536 0.76835&lt;/span&gt;
+&lt;span class="c"&gt;## [25,] 0.8456175 0.08976 0.15553 0.13075 0.74546 0.6280 0.23254 0.62025&lt;/span&gt;
+&lt;span class="c"&gt;##          [,9]   [,10]&lt;/span&gt;
+&lt;span class="c"&gt;##  [1,] 0.30124 0.68865&lt;/span&gt;
+&lt;span class="c"&gt;##  [2,] 0.67112 0.72139&lt;/span&gt;
+&lt;span class="c"&gt;##  [3,] 0.56038 0.99757&lt;/span&gt;
+&lt;span class="c"&gt;##  [4,] 0.23748 0.59152&lt;/span&gt;
+&lt;span class="c"&gt;##  [5,] 0.07987 0.50159&lt;/span&gt;
+&lt;span class="c"&gt;##  [6,] 0.63697 0.91020&lt;/span&gt;
+&lt;span class="c"&gt;##  [7,] 0.71425 0.58123&lt;/span&gt;
+&lt;span class="c"&gt;##  [8,] 0.07934 0.18153&lt;/span&gt;
+&lt;span class="c"&gt;##  [9,] 0.91799 0.85539&lt;/span&gt;
+&lt;span class="c"&gt;## [10,] 0.77144 0.37545&lt;/span&gt;
+&lt;span class="c"&gt;## [11,] 0.43682 0.64109&lt;/span&gt;
+&lt;span class="c"&gt;## [12,] 0.55022 0.43939&lt;/span&gt;
+&lt;span class="c"&gt;## [13,] 0.74331 0.58395&lt;/span&gt;
+&lt;span class="c"&gt;## [14,] 0.01913 0.72981&lt;/span&gt;
+&lt;span class="c"&gt;## [15,] 0.20714 0.95380&lt;/span&gt;
+&lt;span class="c"&gt;## [16,] 0.24238 0.55779&lt;/span&gt;
+&lt;span class="c"&gt;## [17,] 0.16606 0.59220&lt;/span&gt;
+&lt;span class="c"&gt;## [18,] 0.13465 0.03029&lt;/span&gt;
+&lt;span class="c"&gt;## [19,] 0.74797 0.40250&lt;/span&gt;
+&lt;span class="c"&gt;## [20,] 0.11388 0.11504&lt;/span&gt;
+&lt;span class="c"&gt;## [21,] 0.04791 0.58220&lt;/span&gt;
+&lt;span class="c"&gt;## [22,] 0.69066 0.83256&lt;/span&gt;
+&lt;span class="c"&gt;## [23,] 0.00699 0.73928&lt;/span&gt;
+&lt;span class="c"&gt;## [24,] 0.49927 0.18991&lt;/span&gt;
+&lt;span class="c"&gt;## [25,] 0.91362 0.01659&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary></entry><entry><title>Reading 4</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading04.html" rel="alternate"></link><updated>2014-06-23T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-23:reading04.html</id><summary type="html">&lt;p&gt;Please watch the following videos by the beginning of class on Friday,
 June 27th:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;

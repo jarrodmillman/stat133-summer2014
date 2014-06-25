@@ -1,4 +1,4 @@
-load("../data/doxorubicin07.rda")
+load(url("http://www.jarrodmillman.com/stat133-summer2014/data/doxorubicin07.rda"))
 class(doxorubicin07Numbers)
 barplot(colMeans(doxorubicin07Numbers))
 barplot(colMeans(doxorubicin07Numbers[,100:130]), las=2)
@@ -11,6 +11,10 @@ max(subset(doxorubicin07Numbers, select=-Test95))
 max(subset(doxorubicin07Numbers, select=Test95))
 
 boxplot(doxorubicin07Numbers[,100:130])
+
+head(doxorubicin07Info)
+class(doxorubicin07Info$sampleGroup)
+levels(doxorubicin07Info$sampleGroup)
 
 full = list()
 train = list()

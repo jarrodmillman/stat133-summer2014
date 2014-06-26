@@ -4,6 +4,12 @@ optional reading:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Jonathon Shlens' &lt;a href="http://arxiv.org/abs/1404.1100"&gt;A Tutorial on Principal Component
       Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And if you've become even slightly interested in Vim, you may be interested in
+reading this optional blog post:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://csswizardry.com/2014/06/vim-for-people-who-think-things-like-vim-are-weird-and-hard/"&gt;Vim for people who think things like Vim are weird and
+   hard&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary></entry><entry><title>Section Notes - 4</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes4.html" rel="alternate"></link><updated>2014-06-25T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-25:notes4.html</id><summary type="html">&lt;h1&gt;Apply functions in R&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt;'s &lt;code&gt;apply&lt;/code&gt; functions are the efficient way to perform repeated
 operations on vectors of your data. There are many variants of the "apply"

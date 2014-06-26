@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-25T00:00:00-07:00</updated><entry><title>Section Notes - 4</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes4.html" rel="alternate"></link><updated>2014-06-25T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-25:notes4.html</id><summary type="html">&lt;h1&gt;Apply functions in R&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-26T00:00:00-07:00</updated><entry><title>Reading 6 (Optional)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading06.html" rel="alternate"></link><updated>2014-06-26T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-26:reading06.html</id><summary type="html">&lt;p&gt;For those interested in understanding PCA better, I recommend the following
+optional reading:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jonathon Shlens' &lt;a href="http://arxiv.org/abs/1404.1100"&gt;A Tutorial on Principal Component
+      Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Section Notes - 4</title><link href="http://www.jarrodmillman.com/stat133-summer2014/notes4.html" rel="alternate"></link><updated>2014-06-25T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-25:notes4.html</id><summary type="html">&lt;h1&gt;Apply functions in R&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt;'s &lt;code&gt;apply&lt;/code&gt; functions are the efficient way to perform repeated
 operations on vectors of your data. There are many variants of the "apply"
 statement as well as wrappers for special cases of these

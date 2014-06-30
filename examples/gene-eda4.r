@@ -19,9 +19,12 @@ test.all$title = "Test"
 training = data$info$sampleGroup == "Training"
 cols=c("red", "blue")
 
+train$raw = data$raw[, data$info$sampleGroup == "Training"]
 train$log = data$log[, data$info$sampleGroup == "Training"]
+test.all$raw = data$raw[, data$info$sampleGroup == "Test"]
 test.all$log = data$log[, data$info$sampleGroup == "Test"]
 good = names(test.all$log) != suspect
+test$raw = test.all$raw[, good]
 test$log = test.all$log[, good]
 
 train$status = data$info[training, "status"]
@@ -72,3 +75,5 @@ cor.plot(test, threshold=TRUE)
 
 image(as.matrix(dist(t(train$norm))))
 image(as.matrix(dist(t(test$norm))))
+
+save(train, test.all, test, file="mydoxorubicin07.rda")

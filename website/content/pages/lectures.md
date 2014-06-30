@@ -10,3 +10,4 @@ Slug: lectures
               [normalization2 (microarray)]({filename}/examples/quantile-normalization.r)
 * Lecture 12: [eda3 (microarray)]({filename}/examples/gene-eda3.r)
 * Lecture 13: [eda4 (microarray)]({filename}/examples/gene-eda4.r)
+* Lecture 14: [prediction (microarray)]({filename}/examples/gene-predict.r)

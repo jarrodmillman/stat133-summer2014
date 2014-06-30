@@ -20,6 +20,10 @@ table(gene.knn, test$status)
 
 # Let's make a helper function (to reduce cutting and pasting)
 
+
+
+
+
 # How would this look if we added attributes to the knn object
 my.knn1 = function(train.data, test.data, test.status, status=train$status) {
     gknn = knn(t(train.data), t(test.data), status, k=2, prob=TRUE)
@@ -28,10 +32,16 @@ my.knn1 = function(train.data, test.data, test.status, status=train$status) {
     return(gknn)
 }
 
+# This is a bit cumbersome
+raw.knn = my.knn1(train$raw, test$raw, test$status)
+attributes(raw.knn)$mean
+attributes(raw.knn)$table
+
+
 # How would this look it we used a list object instead
-my.knn = function(train.data, test.data, test.status, status=train$status) {
+my.knn = function(train.data, test.data, test.status, status=train$status, k=3) {
     g = list()
-    g$predict = knn(t(train.data), t(test.data), status, k=2, prob=TRUE)
+    g$predict = knn(t(train.data), t(test.data), status, k=k, prob=TRUE)
     g$table = table(g$predict, test.status)
     g$mean = mean(g$predict == test.status)
     return(g)
@@ -55,6 +65,7 @@ norm.all.knn$mean
 
 # What if we want to only use some of the variables?
 # This is called variable selection
+
 
 # Use the t-statistic for variable selection
 tConvert <- function(gene, status=train$status) {
@@ -89,7 +100,7 @@ means = sapply(tops, function(top) {
 
 plot(x, means, type='l')
 
-###
+### What happens when we correctly label the training data?
 
 train.status = train$status
 levels(train.status) = c("Sensitive", "Resistant")
@@ -100,7 +111,7 @@ means = sapply(tops, function(top) {
 
 plot(x, means, type='l')
 
-##
+## Looks like the top 2000 might be best....
 
 top = names(sort(abs(t.stats), decreasing=TRUE)[1:2000])
 raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status)
@@ -108,3 +119,39 @@ raw.all.vs.knn$mean
 raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status)
 raw.all.vs.knn$mean
 
+# Let's look at a few different choices for k
+raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status, k=1)
+raw.all.vs.knn$mean
+raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status, k=2)
+raw.all.vs.knn$mean
+raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status, k=3)
+raw.all.vs.knn$mean
+raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status, k=4)
+raw.all.vs.knn$mean
+raw.all.vs.knn = my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status, k=5)
+raw.all.vs.knn$mean
+
+# Is there a simpler way?
+ks = 1:10
+means = sapply(ks, function(k) {
+                 my.knn(train$raw[top,], test.all$raw[top,], test.all$status,  train.status, k=k)$mean
+         })
+plot(ks, means, type='l')
+
+# How does variable selection affect PCA
+cols=c("red", "blue")
+
+pca.plot <- function(d, status, title) {
+    pca = prcomp(t(d))
+    plot(pca, main=d$title)
+    plot(pca$x[,1:2], col=cols[status], main=title)
+    legend("topright", c("Sensitive", "Resistant"), fill=cols)
+    plot(pca$x[,2:3], col=cols[status], main=title)
+    legend("topright", c("Sensitive", "Resistant"), fill=cols)
+}
+
+pca.plot(train$raw[top,], train$status, train$title)
+pca.plot(test.all$raw[top,], test.all$status, test.all$title)
+pca.plot(test$raw[top,], test$status, test$title)
+
+barplot(colSums(test$raw[top,]))

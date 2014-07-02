@@ -1,5 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-06-26T00:00:00-07:00</updated><entry><title>Reading 6 (Optional)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading06.html" rel="alternate"></link><updated>2014-06-26T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-26:reading06.html</id><summary type="html">&lt;p&gt;For those interested in understanding PCA better, I recommend the following
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/all.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-07-02T00:00:00-07:00</updated><entry><title>Midterm information</title><link href="http://www.jarrodmillman.com/stat133-summer2014/midterm.html" rel="alternate"></link><updated>2014-07-02T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-07-02:midterm.html</id><summary type="html">&lt;h2&gt;Midterm&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;When: Wednesday, July 9 at 9:10A to 10A&lt;/li&gt;
+&lt;li&gt;Where: 145 Moffitt&lt;/li&gt;
+&lt;li&gt;Bring: Your laptop w/ all the software installed/configured&lt;/li&gt;
+&lt;li&gt;Recommended: &lt;a href="http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf"&gt;Refcard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;What to know&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;filesystem hierarchy&lt;/li&gt;
+&lt;li&gt;Bash&lt;ul&gt;
+&lt;li&gt;ls, cd, pwd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;information: status, log&lt;/li&gt;
+&lt;li&gt;virtous cycle:  pull, add, commit, (pull,) push  &lt;/li&gt;
+&lt;li&gt;R&lt;ul&gt;
+&lt;li&gt;ref card&lt;/li&gt;
+&lt;li&gt;getting info&lt;/li&gt;
+&lt;li&gt;data structures&lt;ul&gt;
+&lt;li&gt;vector-centric&lt;/li&gt;
+&lt;li&gt;indexing/subsetting&lt;/li&gt;
+&lt;li&gt;recycling&lt;/li&gt;
+&lt;li&gt;coercion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;functions&lt;ul&gt;
+&lt;li&gt;R has extensive built-in functions&lt;/li&gt;
+&lt;li&gt;vector-centric&lt;/li&gt;
+&lt;li&gt;?&lt;function&gt; to find options&lt;/li&gt;
+&lt;li&gt;scope:  local is good&lt;/li&gt;
+&lt;li&gt;return: explicit is better than implicit&lt;/li&gt;
+&lt;li&gt;encapsulation: e.g., return multiple things w/ a list&lt;/li&gt;
+&lt;li&gt;unit tests: "Testing shows the presence, not the absence of bugs."
+               --- Edsger W. Dijkstra &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;loading/saving data&lt;ul&gt;
+&lt;li&gt;R format&lt;/li&gt;
+&lt;li&gt;csv&lt;/li&gt;
+&lt;li&gt;tab-delimited&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;apply and friends&lt;ul&gt;
+&lt;li&gt;clear, idiomatic R&lt;/li&gt;
+&lt;li&gt;simplifies code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Principle&lt;ul&gt;
+&lt;li&gt;7 plus or minus 2
+  https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two&lt;/li&gt;
+&lt;li&gt;Divide et impera (Divide and conqueror)&lt;/li&gt;
+&lt;li&gt;Learn the idiom&lt;/li&gt;
+&lt;li&gt;language makes some things easier to express than others&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Format&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;similar to labs and homeworks&lt;/p&gt;
+&lt;p&gt;$ cd &lt;my local repo&gt;
+  $ git pull
+  $ cd midterm
+  $ ls
+  &lt;snip&gt;
+  $ edit &lt;file(s)&gt;
+  $ Rscript &lt;R files&gt;  # MUST VERIFY NO EXECUTION HALTED
+  $ git add &lt;file(s)&gt;
+  $ git commit (-m "Clear message for humans")
+  $ git push&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NO communication with others&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You may use your computer to query search engines&lt;/li&gt;
+&lt;li&gt;I wouldn't want to rely on this&lt;/li&gt;
+&lt;li&gt;Do look up error messages, if you don't understand them&lt;/li&gt;
+&lt;li&gt;I would try to rely on the reference card, slides, and ?&lt;/li&gt;
+&lt;li&gt;Make little test cases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There will be several proctors&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can ask anything&lt;/li&gt;
+&lt;li&gt;We will answer questions about &lt;/li&gt;
+&lt;li&gt;Any cheating will result in at least one of the following:&lt;ul&gt;
+&lt;li&gt;0 for the midterm&lt;/li&gt;
+&lt;li&gt;F for the course&lt;/li&gt;
+&lt;li&gt;Report to the Office of Student Conduct&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary></entry><entry><title>Reading 6 (Optional)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading06.html" rel="alternate"></link><updated>2014-06-26T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-06-26:reading06.html</id><summary type="html">&lt;p&gt;For those interested in understanding PCA better, I recommend the following
 optional reading:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Jonathon Shlens' &lt;a href="http://arxiv.org/abs/1404.1100"&gt;A Tutorial on Principal Component

@@ -16,7 +16,7 @@ gene.knn = knn(t(train$raw), t(test$raw), train$status, k=2, prob=TRUE)
 
 # How well does it do?
 mean(gene.knn == test$status)
-table(gene.knn, test$status)
+table(gene.knn, test$status)    # Confusion matrix
 
 # Let's make a helper function (to reduce cutting and pasting)
 

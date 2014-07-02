@@ -13,7 +13,7 @@ presentation of results.
     * OH: W 12-2P (Barker 210)
 * GSI
     * Karl Kumbier 
-    * OH: W 10-12 (Evans 391)
+    * OH: W 10-12 (145 Moffitt)
 * Session Dates: 06/09-08/15/14
     * Class meets MTWTF 9-10A in [145 MOFFITT](https://www.google.com/maps/place/Moffitt+Undergraduate+Library)
     * Lab meets TuTh 10-11A or 12-1P in [340 EVANS](https://maps.google.com/maps?q=340+evans+statistics+berkeley+ca&hl=en&sll=37.8757,-122.25631&sspn=0.01045,0.021136&t=h&hq=340+evans+statistics+berkeley+ca&z=16)

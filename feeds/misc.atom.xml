@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/misc.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-07-02T00:00:00-07:00</updated><entry><title>Midterm information</title><link href="http://www.jarrodmillman.com/stat133-summer2014/midterm.html" rel="alternate"></link><updated>2014-07-02T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-07-02:midterm.html</id><summary type="html">&lt;h2&gt;Midterm&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stat 133 (summer 2014)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/" rel="alternate"></link><link href="http://www.jarrodmillman.com/stat133-summer2014/feeds/misc.atom.xml" rel="self"></link><id>http://www.jarrodmillman.com/stat133-summer2014/</id><updated>2014-07-14T00:00:00-07:00</updated><entry><title>Reading 7 (Optional)</title><link href="http://www.jarrodmillman.com/stat133-summer2014/reading07.html" rel="alternate"></link><updated>2014-07-14T00:00:00-07:00</updated><author><name>Karl Kumbier</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-07-14:reading07.html</id><summary type="html">&lt;p&gt;The following reading provides a good overview of principal component
+analysis in R. You may find it helpful for this weeks homework.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cran.r-project.org/web/packages/HSAUR/vignettes/Ch_principal_components_analysis.pdf"&gt;Principal Component Analysis: The Olympic
+    Heptathalon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Midterm information</title><link href="http://www.jarrodmillman.com/stat133-summer2014/midterm.html" rel="alternate"></link><updated>2014-07-02T00:00:00-07:00</updated><author><name>Jarrod Millman</name></author><id>tag:www.jarrodmillman.com/stat133-summer2014,2014-07-02:midterm.html</id><summary type="html">&lt;h2&gt;Midterm&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;When: Wednesday, July 9 at 9:10A to 10A&lt;/li&gt;
 &lt;li&gt;Where: 145 Moffitt&lt;/li&gt;

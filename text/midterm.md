@@ -173,6 +173,9 @@ sin
 levels
 table
 
+density
+sample
+
 Plots
 =====
 
@@ -182,6 +185,7 @@ plot
 abline
 barplot
 legend
+lines
 
 Logic
 =====

@@ -1248,8 +1248,8 @@ you haven't changed directories since entering the above commands):&lt;/p&gt;
 
 
 &lt;p&gt;Open your text editor and create a new file, called &lt;code&gt;info.r&lt;/code&gt;.  Now
-add the following content,&lt;em&gt;Making sure to replace the information I have supplied
-with your own info&lt;/em&gt;:&lt;/p&gt;
+add the following content (&lt;em&gt;make sure to replace the information I have supplied
+WITH YOUR OWN INFO&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Karl Kumbier&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;SID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;0123456789&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;name@berkeley.edu&amp;quot;&lt;/span&gt;

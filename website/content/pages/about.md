@@ -36,13 +36,12 @@ with a focus on the R statistical computing environment.  Topics may include:
 * Working at the (Bash) command line
 * Implementing reproducible research
 * Version control using Git and GitHub
-* Understanding regular expressions
 * Basics of R programming (data structures, control flow, debugging, etc.)
 * Simulation and random number generation
 * Exploratory data analysis and dimension reduction (PCA)
-* File formats including CSV, JSON, HDF5, and XML
-* Process automation with Make
-* Clustering, classification, and linear regression
+* Hypothesis testing (t-tests)
+* Clustering (k-means, hierarchical clustering) and classification (k-nn, CART, Random Forests)
+* Linear and logistic regression
 
 ## Grading
 

@@ -107,8 +107,12 @@ open source scientific computing community.  Rather than trying to learn
 everything that you can about <code>git</code> right away, you will only be learning
 the things you need to immediately use.  Over the next several weeks, you
 will incrementally learn how to use more of its features.</p>
-<p>Entering <code>git</code> at a shell prompt, will produce output something like
-this (try this on your own computer):</p>
+<p><code>git</code> commands are run through a shell prompt. You can interact with shell prompts
+via Terminal (on OSX) or Git Bash (on Windows). If you are using OSX,
+Terminal comes pre-installed. If you are using Windows, you will need to install
+Git bash by following the instructions <a href="pages/software">here</a>. Entering <code>git</code>
+at a shell prompt, will produce output something like this (try this on your own
+computer):</p>
 <div class="highlight"><pre><span class="nv">$ </span>git
 usage: git &lt;<span class="nb">command</span>&gt; <span class="o">[</span>&lt;args&gt;<span class="o">]</span>
 
@@ -161,12 +165,15 @@ your repositories main page, you should see a button labelled
 "Settings".  Click on the "Settings" button will take you to
 a page where you can edit various settings for your repository.
 Choose the "Collaborators" button on the "Settings" page and
-add me, <code>karlkumbier</code>, as well as the instructor, <code>jarrodmillman</code>.</p>
+add me, <code>karlkumbier</code>, as well as the instructor <code>ingileif</code>,
+and<code>jarrodmillman</code> (developer).</p>
 <p><img alt="Github Add Collaborator" src="http://www.jarrodmillman.com/stat133-summer2014/images/github_add_collab.png" /></p>
 <h3>Clone repository to your local machine</h3>
-<p>First you will create a <code>src</code> subdirectory in your home directory.
-Then you will clone your repo inside of the <code>src</code> subdirectory.
-Please make sure to use your own Github username instead of mine.</p>
+<p>First you will create a <code>src</code> subdirectory in your home directory.  Then you
+will clone your repo inside of the <code>src</code> subdirectory.  Please make sure to
+use your own Github username instead of mine. Running the following commands at
+a shell prompt will create a new directory <code>src</code> inside your home directory
+and clone the repository you just created on Github to your machine:</p>
 <div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span>            <span class="c"># go to your home directory</span>
 <span class="nv">$ </span>mkdir src     <span class="c"># make a source subdirectory</span>
 <span class="nv">$ </span><span class="nb">cd </span>src
@@ -206,9 +213,11 @@ you haven't changed directories since entering the above commands):</p>
 </pre></div>
 
 
-<p>Open your text editor and create a new file, called <code>info.r</code>.  Now
-add the following content (<em>make sure to replace the information I have supplied
-WITH YOUR OWN INFO</em>:</p>
+<p>Open your text editor and create a new file, called <code>info.r</code>.  If you are
+using RStudio, you should create this file in the text editor window (upper left
+by default) and save it to your newly cloned stat133 directory. Add the
+following content (<em>make sure to replace the information I have supplied WITH
+YOUR OWN INFO</em>:</p>
 <div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Karl Kumbier&quot;</span>
 <span class="n">SID</span> <span class="o">=</span> <span class="s">&quot;0123456789&quot;</span>
 <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;name@berkeley.edu&quot;</span>

@@ -97,11 +97,11 @@ functions to manipulate some input argument(s) and return some output
 arguments(s). You've already seen some examples of built in R functions:</p>
 <div class="highlight"><pre><span class="c1"># Take the mean of &lt;numeric.vector&gt;</span>
 numeric.vector <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
-mean<span class="p">(</span>numeric.vector<span class="p">)</span>
+<span class="kp">mean</span><span class="p">(</span>numeric.vector<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 5.5</span>
+<div class="highlight"><pre>## [1] 5.5
 </pre></div>
 
 
@@ -110,8 +110,8 @@ rnorm<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">##  [1]  1.8051 -1.3698  0.2661  0.4697  1.0124  1.5709  0.4211  0.8027</span>
-<span class="c">##  [9]  0.2071  0.9277</span>
+<div class="highlight"><pre>##  [1]  1.8051 -1.3698  0.2661  0.4697  1.0124  1.5709  0.4211  0.8027
+##  [9]  0.2071  0.9277
 </pre></div>
 
 
@@ -146,7 +146,7 @@ add<span class="p">(</span><span class="m">1</span><span class="p">,</span> <spa
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 2</span>
+<div class="highlight"><pre>## [1] 2
 </pre></div>
 
 
@@ -154,7 +154,7 @@ add<span class="p">(</span><span class="m">1</span><span class="p">,</span> <spa
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 10</span>
+<div class="highlight"><pre>## [1] 10
 </pre></div>
 
 
@@ -162,7 +162,7 @@ add<span class="p">(</span><span class="m">1</span><span class="p">,</span> <spa
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 4</span>
+<div class="highlight"><pre>## [1] 4
 </pre></div>
 
 
@@ -183,7 +183,7 @@ sumDiff<span class="p">(</span><span class="m">4</span><span class="p">,</span> 
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## Error: multi-argument returns are not permitted</span>
+<div class="highlight"><pre>## Error: multi-argument returns are not permitted
 </pre></div>
 
 
@@ -192,32 +192,32 @@ sumDiff<span class="p">(</span><span class="m">4</span><span class="p">,</span> 
 sumDiff <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">)</span> <span class="p">{</span>
     result.sum <span class="o">&lt;-</span> x <span class="o">+</span> y
     result.diff <span class="o">&lt;-</span> x <span class="o">-</span> y
-    <span class="kr">return</span><span class="p">(</span>c<span class="p">(</span>result.sum<span class="p">,</span> result.diff<span class="p">))</span>
+    <span class="kr">return</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span>result.sum<span class="p">,</span> result.diff<span class="p">))</span>
 <span class="p">}</span>
 
 sumDiff<span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 6 2</span>
+<div class="highlight"><pre>## [1] 6 2
 </pre></div>
 
 
 <div class="highlight"><pre>sumDiff <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">)</span> <span class="p">{</span>
     result.sum <span class="o">&lt;-</span> x <span class="o">+</span> y
     result.diff <span class="o">&lt;-</span> x <span class="o">-</span> y
-    <span class="kr">return</span><span class="p">(</span>list<span class="p">(</span>s <span class="o">=</span> result.sum<span class="p">,</span> d <span class="o">=</span> result.diff<span class="p">))</span>
+    <span class="kr">return</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>s <span class="o">=</span> result.sum<span class="p">,</span> d <span class="o">=</span> result.diff<span class="p">))</span>
 <span class="p">}</span>
 
 sumDiff<span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## $s</span>
-<span class="c">## [1] 6</span>
-<span class="c">## </span>
-<span class="c">## $d</span>
-<span class="c">## [1] 2</span>
+<div class="highlight"><pre><span class="cp">##</span><span class="c"> $s</span><span class="x"></span>
+<span class="cp">##</span><span class="c"> [1] 6</span><span class="x"></span>
+<span class="cp">##</span><span class="c"> </span><span class="x"></span>
+<span class="cp">##</span><span class="c"> $d</span><span class="x"></span>
+<span class="cp">##</span><span class="c"> [1] 2</span><span class="x"></span>
 </pre></div>
 
 
@@ -242,7 +242,7 @@ getNewAge<span class="p">(</span><span class="s">&quot;Bob&quot;</span><span cla
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 10</span>
+<div class="highlight"><pre>## [1] 10
 </pre></div>
 
 
@@ -250,7 +250,7 @@ getNewAge<span class="p">(</span><span class="s">&quot;Bob&quot;</span><span cla
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] 12</span>
+<div class="highlight"><pre>## [1] 12
 </pre></div>
 
 
@@ -264,7 +264,7 @@ that your code is performing correctly along the way. Unit testing packages in R
 provide the framework to test your code in this way. We're going to cover the
 "RUnit" package, but there are other unit testing packages that work
 well. First, you'll have to install the package using the following command:</p>
-<div class="highlight"><pre><span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s">&quot;RUnit&quot;</span><span class="p">)</span>
+<div class="highlight"><pre>install.packages<span class="p">(</span><span class="s">&quot;RUnit&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -272,7 +272,7 @@ well. First, you'll have to install the package using the following command:</p>
 will think you're referring to some variable in the workspace. You should get a
 prompt telling you to select a CRAN Mirror, choose CA1. After the package is
 installed, you'll need to load it using the following command:</p>
-<div class="highlight"><pre>library<span class="p">(</span><span class="s">&quot;RUnit&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span><span class="s">&quot;RUnit&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -289,7 +289,7 @@ the output of our function with the desired value:</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] TRUE</span>
+<div class="highlight"><pre>## [1] TRUE
 </pre></div>
 
 
@@ -297,7 +297,7 @@ the output of our function with the desired value:</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## Error: Mean relative difference: 1</span>
+<div class="highlight"><pre>## Error: Mean relative difference: 1
 </pre></div>
 
 
@@ -311,7 +311,7 @@ checkTrue<span class="p">(</span>isPositive<span class="p">(</span><span class="
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] TRUE</span>
+<div class="highlight"><pre>## [1] TRUE
 </pre></div>
 
 
@@ -319,7 +319,7 @@ checkTrue<span class="p">(</span>isPositive<span class="p">(</span><span class="
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## Error: Test not TRUE</span>
+<div class="highlight"><pre>## Error: Test not TRUE
 </pre></div>
 
 
@@ -342,21 +342,21 @@ divide <span class="o">&lt;-</span> <span class="kr">function</span><span class=
     <span class="kr">return</span><span class="p">(</span>numerator<span class="o">/</span>denominator<span class="p">)</span>
 <span class="p">}</span>
 
-tryCatch<span class="p">(</span>checkIdentical<span class="p">(</span>divide<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="kc">NA</span><span class="p">),</span> error <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>err<span class="p">)</span> print<span class="p">(</span>paste<span class="p">(</span><span class="s">&quot;Error:&quot;</span><span class="p">,</span> 
+<span class="kp">tryCatch</span><span class="p">(</span>checkIdentical<span class="p">(</span>divide<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="kc">NA</span><span class="p">),</span> error <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>err<span class="p">)</span> <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;Error:&quot;</span><span class="p">,</span> 
     err<span class="p">)))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] &quot;Error: Error in checkIdentical(divide(1, 0), NA): FALSE \n&quot;</span>
+<div class="highlight"><pre>## [1] &quot;Error: Error in checkIdentical(divide(1, 0), NA): FALSE \n&quot;
 </pre></div>
 
 
-<div class="highlight"><pre>tryCatch<span class="p">(</span>checkEquals<span class="p">(</span>divide<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="m">0.5</span><span class="p">),</span> error <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>err<span class="p">)</span> print<span class="p">(</span>paste<span class="p">(</span><span class="s">&quot;Error:&quot;</span><span class="p">,</span> 
+<div class="highlight"><pre><span class="kp">tryCatch</span><span class="p">(</span>checkEquals<span class="p">(</span>divide<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="m">0.5</span><span class="p">),</span> error <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>err<span class="p">)</span> <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;Error:&quot;</span><span class="p">,</span> 
     err<span class="p">)))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c">## [1] TRUE</span>
+<div class="highlight"><pre>## [1] TRUE
 </pre></div>
 
 

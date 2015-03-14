@@ -183,7 +183,7 @@ Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39
 Password <span class="k">for</span> <span class="s1">&#39;https://karlkumbier@github.com&#39;</span>: 
 remote: Counting objects: 4, <span class="k">done</span>.
 remote: Compressing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, <span class="k">done</span>.
-remote: Total 4 <span class="o">(</span>delta 0<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+remote: Total <span class="m">4</span> <span class="o">(</span>delta 0<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>
 Unpacking objects: 100% <span class="o">(</span>4/4<span class="o">)</span>, <span class="k">done</span>.
 Checking connectivity... <span class="k">done</span>.
 </pre></div>
@@ -218,11 +218,11 @@ using RStudio, you should create this file in the text editor window (upper left
 by default) and save it to your newly cloned stat133 directory. Add the
 following content (<em>make sure to replace the information I have supplied WITH
 YOUR OWN INFO</em>:</p>
-<div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Karl Kumbier&quot;</span>
-<span class="n">SID</span> <span class="o">=</span> <span class="s">&quot;0123456789&quot;</span>
-<span class="n">email</span> <span class="o">=</span> <span class="s">&quot;name@berkeley.edu&quot;</span>
-<span class="n">github_name</span> <span class="o">=</span> <span class="s">&quot;karlkumbier&quot;</span>
-<span class="n">status</span> <span class="o">=</span> <span class="s">&quot;enrolled&quot;</span>
+<div class="highlight"><pre>name = &quot;Karl Kumbier&quot;
+SID = &quot;0123456789&quot;
+email = &quot;name@berkeley.edu&quot;
+github_name = &quot;karlkumbier&quot;
+status = &quot;enrolled&quot;
 </pre></div>
 
 
@@ -262,8 +262,8 @@ Changes to be committed:
 <p>Everything looks good, so go ahead and commit your change:</p>
 <div class="highlight"><pre><span class="nv">$ </span>git commit -m <span class="s2">&quot;Add personal info&quot;</span>
 <span class="o">[</span>master bbc329f<span class="o">]</span> Add personal info
- 1 file changed, 4 insertions<span class="o">(</span>+<span class="o">)</span>
- create mode 100644 info.r
+ <span class="m">1</span> file changed, <span class="m">4</span> insertions<span class="o">(</span>+<span class="o">)</span>
+ create mode <span class="m">100644</span> info.r
 </pre></div>
 
 
@@ -271,13 +271,13 @@ Changes to be committed:
 <div class="highlight"><pre><span class="nv">$ </span>git log 
 commit bbc329fe5f0672582a3ad3c70f5b86f4acc15f63
 Author: Karl Kumbier &lt;kkumbier@berkeley.edu&gt;
-Date:   Wed Jan 29 14:19:38 2014 -0800
+Date:   Wed Jan <span class="m">29</span> 14:19:38 <span class="m">2014</span> -0800
 
     Add personal info
 
 commit dead6f41c65e50f444760653205e21083caabfcc
 Author: Karl Kumbier &lt;kkumbier@berkeley.edu&gt;
-Date:   Tue Jan 28 22:29:33 2014 -0800
+Date:   Tue Jan <span class="m">28</span> 22:29:33 <span class="m">2014</span> -0800
 
     Initial commit
 </pre></div>
@@ -291,10 +291,10 @@ changes back up to your remote Github repo:</p>
 Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>: karlkumbier
 Password <span class="k">for</span> <span class="s1">&#39;https://karlkumbier@github.com&#39;</span>: 
 Counting objects: 4, <span class="k">done</span>.
-Delta compression using up to 4 threads.
+Delta compression using up to <span class="m">4</span> threads.
 Compressing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, <span class="k">done</span>.
-Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, 359 bytes | 0 bytes/s, <span class="k">done</span>.
-Total 3 <span class="o">(</span>delta 1<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, <span class="m">359</span> bytes <span class="p">|</span> <span class="m">0</span> bytes/s, <span class="k">done</span>.
+Total <span class="m">3</span> <span class="o">(</span>delta 1<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>
 To https://github.com/karlkumbier/stat133
    dead6f4..bbc329f  master -&gt; master
 </pre></div>

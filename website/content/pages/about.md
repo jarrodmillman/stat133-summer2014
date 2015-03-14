@@ -19,7 +19,7 @@ presentation of results.
     * Lab meets TuTh 10-11A or 12-1P in [340 EVANS](https://maps.google.com/maps?q=340+evans+statistics+berkeley+ca&hl=en&sll=37.8757,-122.25631&sspn=0.01045,0.021136&t=h&hq=340+evans+statistics+berkeley+ca&z=16)
     * Midterm on 7/9 at 9-10A in [145 MOFFITT](https://www.google.com/maps/place/Moffitt+Undergraduate+Library)
     * Final on 8/15 at 9-10A in [145 MOFFITT](https://www.google.com/maps/place/Moffitt+Undergraduate+Library)
-* CNN: [79690](http://osoc.berkeley.edu/OSOC/osoc?p_ccn=79690&p_term=SU)
+* CCN: [79690](http://osoc.berkeley.edu/OSOC/osoc?p_ccn=79690&p_term=SU)
 
 
 **Prerequisites**: Familiarity with basic concepts in probability and
@@ -33,8 +33,8 @@ The goal of this course is to introduce you to a variety of programs and
 technologies that are useful for organizing, manipulating, and visualizing data
 with a focus on the R statistical computing environment.  Topics may include:
 
+* Woring in a reproducible manner
 * Working at the (Bash) command line
-* Implementing reproducible research
 * Version control using Git and GitHub
 * Basics of R programming (data structures, control flow, debugging, etc.)
 * Simulation and random number generation
